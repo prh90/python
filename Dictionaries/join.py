@@ -14,10 +14,16 @@ exits = {0: {"Q": 0},
          }
 
 vocabulary = {"QUIT":  "Q",
-              "quit":  "Q",
-              "NORTH": "N",              "SOUTH": "S",
+              "NORTH": "N",
+              "SOUTH": "S",
               "EAST":  "E",
               "WEST":  "W"}
+
+# print(locations[0].split())
+# print(locations[3].split())
+# print(' '.join(locations[0].split()))
+
+
 
 loc = 1
 while True:
@@ -35,9 +41,14 @@ while True:
     print()
     # Parse user input using vocab dictionary
     if len(direction) > 1:
-        for word in vocabulary: # does it contain word we know
-            if word in direction:
+        words = direction.split()
+        for word in words :
+            for word in vocabulary:
                 direction = vocabulary[word]
+                break
+        # for word in vocabulary: # does it contain word we know
+        #     if word in direction:
+        #         direction = vocabulary[word]
 
     if direction in exits[loc]:
         loc = exits[loc][direction]
