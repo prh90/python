@@ -39,22 +39,47 @@
 # print(sorted(even))
 #
 #
-even = set(range(0, 40, 2))
-print(even)
-
-square_tuple = (4, 6, 9, 16, 25)
-squares = set(square_tuple)
-print(squares)
+# even = set(range(0, 40, 2))
+# print(even)
+#
+# square_tuple = (4, 6, 9, 16, 25)
+# squares = set(square_tuple)
+# print(squares)
 
 # print("symmetric even minus squares")
 # print(sorted(even.symmetric_difference(squares)))
 #
 # print("symmetric squares minus even")
 # print(sorted(squares.symmetric_difference(even)))
+#
+# squares.discard(4)
+# squares.remove(16)
+# squares.discard(8) #no error, does nothing
+# print(squares)
+# try:
+#     squares.remove(8)
+# except KeyError:
+#     print("The item 8 is not part of the set")
+# if 8 in squares:
+#     squares.remove(8)
+# # Safe way to check if its inside if it is then proceed with operation
 
+# even = set(range(0, 40, 2))
+# # print(even)
+#
+# square_tuple = (4, 6, 16)
+# squares = set(square_tuple)
+# # print(squares)
+#
+# if squares.issubset(even):
+#     print("squares is a subset of even")
+#
+# if even.issuperset(squares):
+#     print("even is a superset of squares")
 
+even = frozenset(range(0, 100, 2))
 
-
-
+print(even)
+even.add(3)
 
 
