@@ -6,7 +6,7 @@
 # common = s_list.intersection(vowels)
 # print(sorted(common))
 
-# I believe they are both the same  
+# I believe they are both the same
 # *******************************************************8
 sampleText = "Python is a very powerful language"
 
