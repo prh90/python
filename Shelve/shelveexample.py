@@ -41,8 +41,21 @@ fruit = shelve.open('ShelfTest')
 #         print(description)
 #     else:
 #         print("We don't have {}".format(dict_key))
+######################################
+# Sort the keys by alphabetical order
+# ordered_keys = list(fruit.keys())
+# ordered_keys.sort()
+#
+# for f in ordered_keys:
+#     print(f + " - " + fruit[f])
+######################################
+for v in fruit.values():
+    print(v)
+print(fruit.values())
 
-for f in fruit:
-    print(f + " - " + fruit[f])
+for f in fruit.items():
+    print(f)
+
+print(fruit.items())
 
 fruit.close()
