@@ -20,6 +20,7 @@ locations['4'] = {"desc": "You are in a valley beside a stream",
 locations['5'] = {"desc": "You are in the forest",
                   "exits": {"W": 2, "S": 1, "Q": 0},
                   "namedExits": {"2": 2, "1": 1}}
+locations.close()
 
 
 vocabulary = shelve.open("vocabulary")
@@ -34,3 +35,5 @@ vocabulary["HILL"] = "2"
 vocabulary["BUILDING"] = "3"
 vocabulary["VALLEY"] = "4"
 vocabulary["FOREST"] = "5"
+
+vocabulary.close()
