@@ -1,38 +1,29 @@
-import time
+import datetime
 import pytz
-# import random
-import shelve
 
+available_zones = {'1': 'Africa/Johannesburg',
+                   '2': 'America/Chicago',
+                   '3': 'Pacific/Auckland',
+                   '4': 'Japan',
+                   '5': 'Europe/Zurich',
+                   '6': 'Europe/Sarajevo',
+                   '7': 'Europe/Rome',
+                   '8': 'Europe/Moscow',
+                   '9': 'Asia/Gaza'}
 
-# all_timezones = ['Africa/Johannesburg', 'America/Chicago', 'Pacific/Auckland', 'Japan', 'Europe/Zurich', 'Europe/Sarajevo', 'Europe/Rome', 'Europe/Moscow', 'Asia/Gaza']
-zones = shelve.open('zones')
+print("Please choose a time zone (or enter 0 to quit):")
+for place in sorted(available_zones):
+    print("\t\t{}. {}".format(place, available_zones[place]))
 
-zones[0] = 
+while True:
+    choice = input()
 
-# for x in all_timezones:
-#     print("{}: {}".format(all_timezones.index(x) + 1, x))
-tim1 = 'Africa/Johannesburg'
-tim2 = 'America/Chicago'
-tim3 = 'Pacific/Auckland'
-tim4 = 'Japan'
-tim5 = 'Europe/Zurich'
-tim6 = 'Europe/Sarajevo'
-tim7 = 'Europe/Rome'
-tim8 = 'Europe/Moscow'
-tim9 = 'Asia/Gaza'
-l_exit = 'Exit'
-
-l_list = [tim1, tim2, tim3, tim4, tim5, tim6, tim7, tim8, tim9, l_exit]
-
-for x in l_list:
-    if x == l_exit:
-        print("0: Exit")
-    else:
-        print("{}: {}".format(l_list.index(x) + 1, x))
-
-print()
-int1 = input("Select the timezone you would like to see: ")
-if int1 in l_list:
-    print("The time in {} is ".format(int1) + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
-
-
+    if choice == '0':
+        break
+    if choice in available_zones.keys():
+        tz_to_display = pytz.timezone(available_zones[choice])
+        world_time = datetime.datetime.now(tz=tz_to_display)
+        print("The time in {} is {} {}".format(available_zones[choice], world_time.strftime('%A %x %X %z'), world_time.tzname()))
+        print("Local time is {}".format(datetime.datetime.now().strftime('%A %x %X')))
+        print("UTC time is {}".format(datetime.datetime.utcnow().strftime('%A %x %X')))
+        print()
