@@ -1,10 +1,13 @@
 import time
 import pytz
 # import random
+import shelve
 
 
-all_timezones = ['Africa/Johannesburg', 'America/Chicago', 'Pacific/Auckland', 'Japan', 'Europe/Zurich', 'Europe/Sarajevo', 'Europe/Rome', 'Europe/Moscow', 'Asia/Gaza']
+# all_timezones = ['Africa/Johannesburg', 'America/Chicago', 'Pacific/Auckland', 'Japan', 'Europe/Zurich', 'Europe/Sarajevo', 'Europe/Rome', 'Europe/Moscow', 'Asia/Gaza']
+zones = shelve.open('zones')
 
+zones[0] = 
 
 # for x in all_timezones:
 #     print("{}: {}".format(all_timezones.index(x) + 1, x))
@@ -29,8 +32,7 @@ for x in l_list:
 
 print()
 int1 = input("Select the timezone you would like to see: ")
-print(int1)
-
-
+if int1 in l_list:
+    print("The time in {} is ".format(int1) + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
 
 
