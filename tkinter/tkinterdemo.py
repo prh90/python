@@ -3,8 +3,8 @@ try:
 except ImportError: # python 2
     import Tkinter as tkinter
 
-print(tkinter.TkVersion)
-print(tkinter.TclVersion)
+# print(tkinter.TkVersion)
+# print(tkinter.TclVersion)
 
 # tkinter._test()
 mainWindow = tkinter.Tk()
@@ -44,4 +44,8 @@ rightFrame.config(relief='sunken', borderwidth=1)
 leftFrame.grid(sticky='ns')
 rightFrame.grid(sticky='new')
 
+rightFrame.columnconfigure(0, weight=1)
+button2.grid(sticky='ew')
+button1.grid(sticky='ew')
+button3.grid(sticky='ew')
 mainWindow.mainloop()
