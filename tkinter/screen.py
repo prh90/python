@@ -41,7 +41,7 @@ optionFrame = tkinter.LabelFrame(mainWindow, text='File Details')
 optionFrame.grid(row=1, column=2, sticky='ne')
 
 rbValue = tkinter.IntVar()
-rbValue.set(3)
+rbValue.set(1)
 # Radio Buttons
 radio1 = tkinter.Radiobutton(optionFrame, text='Filename', value=1, variable=rbValue)
 radio2 = tkinter.Radiobutton(optionFrame, text='Path', value=2, variable=rbValue)
@@ -50,5 +50,13 @@ radio1.grid(row=0, column=0, sticky='w')
 radio2.grid(row=2, column=0, sticky='w')
 radio3.grid(row=3, column=0, sticky='w')
 
+# Result
+result = tkinter.Label(mainWindow, text='Result')
+result.grid(row=2, column=2, sticky='nw')
+
+result = tkinter.Entry(mainWindow)
+result.grid(row=2, column=2, sticky='sw')
 
 mainWindow.mainloop()
+
+# print(rbValue.get())
