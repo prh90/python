@@ -2,6 +2,7 @@ try:
     import tkinter
 except ImportError: # python 2
     import Tkinter as tkinter
+import os
 
 mainWindow = tkinter.Tk()
 
@@ -25,6 +26,8 @@ mainWindow.rowconfigure(4, weight=3)
 fileList = tkinter.Listbox(mainWindow)
 fileList.grid(row=1, column=0, sticky='nsew', rowspan=2)
 fileList.config(border=2, relief='sunken')
+for zone in os.listdir('c:/Windows/System32'):
+    fileList.insert(tkinter.END, zone)
 
 
 
