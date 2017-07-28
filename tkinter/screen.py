@@ -57,6 +57,21 @@ result.grid(row=2, column=2, sticky='nw')
 result = tkinter.Entry(mainWindow)
 result.grid(row=2, column=2, sticky='sw')
 
+# Frame for the time spinners
+timeFrame = tkinter.LabelFrame(mainWindow, text='Time')
+timeFrame.grid(row=0, column=0, sticky='new')
+# time spinners
+hourSpinner = tkinter.Spinbox(timeFrame, width=2, value=tuple(range(0, 24)))
+minuteSpinner = tkinter.Spinbox(timeFrame, width=2, from_=0, to=59)
+secondSpinner = tkinter.Spinbox(timeFrame, width=2, from_=0, to=59)
+
+hourSpinner.grid(row=0, column=0)
+tkinter.Label(timeFrame, text=':').grid(row=0, column=1)
+minuteSpinner.grid(row=0, column=2)
+tkinter.Label(timeFrame, text=":").grid(row=0, column=3)
+secondSpinner.grid(row=0, column=4)
+
+
 mainWindow.mainloop()
 
 # print(rbValue.get())
