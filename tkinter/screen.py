@@ -2,21 +2,23 @@ try:
     import tkinter
 except ImportError: # python 2
     import Tkinter as tkinter
+
 import os
 
 mainWindow = tkinter.Tk()
 
 mainWindow.title("Grid Demo")
 mainWindow.geometry('640x480+8+200')
+mainWindow['padx'] = 8
 
 label = tkinter.Label(mainWindow, text='Tkinter Grid Demo')
 label.grid(row=0, column=0, columnspan=3)
 
-mainWindow.columnconfigure(0, weight=1)
+mainWindow.columnconfigure(0, weight=100)
 mainWindow.columnconfigure(1, weight=1)
-mainWindow.columnconfigure(2, weight=3)
-mainWindow.columnconfigure(3, weight=3)
-mainWindow.columnconfigure(4, weight=3)
+mainWindow.columnconfigure(2, weight=1000)
+mainWindow.columnconfigure(3, weight=600)
+mainWindow.columnconfigure(4, weight=1000)
 mainWindow.rowconfigure(0, weight=1)
 mainWindow.rowconfigure(1, weight=10)
 mainWindow.rowconfigure(2, weight=1)
@@ -26,7 +28,7 @@ mainWindow.rowconfigure(4, weight=3)
 fileList = tkinter.Listbox(mainWindow)
 fileList.grid(row=1, column=0, sticky='nsew', rowspan=2)
 fileList.config(border=2, relief='sunken')
-for zone in os.listdir('c:/Windows/System32'):
+for zone in os.listdir('c:/Users/pablo/Desktop'):
     fileList.insert(tkinter.END, zone)
 
 
@@ -92,6 +94,13 @@ yearSpin = tkinter.Spinbox(dateFrame, width=5, from_=2000, to=2099)
 daySpin.grid(row=1, column=0, sticky='w')
 monthSpin.grid(row=1, column=1, sticky='w')
 yearSpin.grid(row=1, column=2, sticky='w')
+
+# Buttons
+okButton = tkinter.Button(mainWindow, text='OK')
+cancelButton = tkinter.Button(mainWindow, text='Cancel', command=mainWindow.quit)
+okButton.grid(row=4, column=3, sticky='e')
+cancelButton.grid(row=4, column=4, sticky='w')
+
 
 mainWindow.mainloop()
 
