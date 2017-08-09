@@ -14,12 +14,15 @@ def parabola(page, size):
 
 
 def circle(page, radius, g, h):
-    for x in range(g, g + radius):
-        y = h + (math.sqrt(radius ** 2 - ((x - g) ** 2)))
-        plot(page, x, y)
-        plot(page, x, 2 * h -y)
-        plot(page, 2 * g - x, y)
-        plot(page, 2 * g - x, 2 * h - y)
+    page.create_oval(g + radius, h + radius, g - radius, h - radius, outline="red", width=2)
+    # for x in range(g * 100, (g + radius) * 100):
+    #     x /= 100
+    #     print(x)
+    #     y = h + (math.sqrt(radius ** 2 - ((x - g) ** 2)))
+    #     plot(page, x, y)
+    #     plot(page, x, 2 * h -y)
+    #     plot(page, 2 * g - x, y)
+    #     plot(page, 2 * g - x, 2 * h - y)
 
 
 def draw_axis(page):
