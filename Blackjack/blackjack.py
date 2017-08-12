@@ -1,4 +1,4 @@
-# import random
+import random
 
 try:
     import tkinter
@@ -69,4 +69,11 @@ cards = []
 load_images(cards)
 print(cards)
 # create a new deck of cards and shuffle them.
+deck = list(cards)
+random.shuffle(deck)
+
+# create the list to store the dealers and players hands
+dealer_hand = []
+player_hand = []
+
 mainWindow.mainloop()
