@@ -7,7 +7,7 @@ except ImportError:
 
 mainWindow = tkinter.Tk()
 
-# Set uo the screen and frames for the dealer and player
+# Set up the screen and frames for the dealer and player
 
 mainWindow.title("BlackJack")
 mainWindow.geometry("640x480")
