@@ -54,8 +54,21 @@ def score_hand(hand):
             ace = False
     return score
 
+
 def deal_dealer():
-    deal_card(dealer_card_frame)
+    dealer_hand.append(deal_card(dealer_card_frame))
+    dealer_score = score_hand(dealer_hand)
+    dealer_score_label.set(dealer_score)
+
+    player_score = score_hand(player_hand)
+    if player_score > 21:
+        result_text.set("Dealer Wins")
+    elif dealer_score > 21 or dealer_score < player_score:
+        result_text.set("Player Wins")
+    elif dealer_score > player_score:
+        result_text.set("Dealer wins!")
+    else:
+        result_text.set("Draw!")
 
 
 def deal_player():
@@ -99,15 +112,12 @@ card_frame.grid(row=1, column=0, sticky="ew", columnspan=3, rowspan=2)
 
 dealer_score_label = tkinter.IntVar()
 tkinter.Label(card_frame, text="Dealer", background="green", fg="white").grid(row=0, column=0)
-tkinter.Label(card_frame, text=dealer_score_label, background="green", fg="white").grid(row=1, column=0)
+tkinter.Label(card_frame, textvariable=dealer_score_label, background="green", fg="white").grid(row=1, column=0)
 # embedded frame to hold the card images
 dealer_card_frame = tkinter.Frame(card_frame, background="green")
 dealer_card_frame.grid(row=0, column=1, sticky="ew", rowspan=2)
 
 player_score_label = tkinter.IntVar()
-# player_score = 0
-# player_ace = False
-
 tkinter.Label(card_frame, text="Player", background="green", fg="white").grid(row=2, column=0)
 tkinter.Label(card_frame, textvariable=player_score_label, background="green", fg="white").grid(row=3, column=0)
 # embedded frame to hold the card images
