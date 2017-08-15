@@ -50,7 +50,8 @@ def deal_player():
 
 # Set up the screen and frames for the dealer and player
 mainWindow.title("BlackJack")
-mainWindow.geometry("640x480")
+mainWindow.geometry("840x680")
+mainWindow.configure(background='green')
 
 result_text = tkinter.StringVar()
 result = tkinter.Label(mainWindow, textvariable=result_text)
