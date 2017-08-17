@@ -56,9 +56,11 @@ def score_hand(hand):
 
 
 def deal_dealer():
-    dealer_hand.append(deal_card(dealer_card_frame))
     dealer_score = score_hand(dealer_hand)
-    dealer_score_label.set(dealer_score)
+    while 0 < dealer_score < 17:
+        dealer_hand.append(deal_card(dealer_card_frame))
+        dealer_score = score_hand(dealer_hand)
+        dealer_score_label.set(dealer_score)
 
     player_score = score_hand(player_hand)
     if player_score > 21:
@@ -144,5 +146,10 @@ random.shuffle(deck)
 # create the list to store the dealers and players hands
 dealer_hand = []
 player_hand = []
+
+deal_player()
+dealer_hand.append(deal_card(dealer_card_frame))
+dealer_score_label.set(score_hand(dealer_hand))
+deal_player()
 
 mainWindow.mainloop()
