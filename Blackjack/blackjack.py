@@ -99,9 +99,35 @@ def deal_player():
 #     print(locals())
 
 
-def restart():
-    
+def new_game():
+    global dealer_card_frame
+    global player_card_frame
+    global dealer_hand
+    global player_hand
 
+    # dealer_hand.clear()
+    # player_hand.clear()
+    # player_score_label.set(0)
+    # dealer_score_label.set(0)
+#     embedded frame to hold the card images
+    dealer_card_frame.destroy()
+    dealer_card_frame = tkinter.Frame(card_frame, background="green")
+    dealer_card_frame.grid(row=0, column=1, sticky='ew', rowspan=2)
+#     embedded frame to hold the card images
+    player_card_frame.destroy()
+    player_card_frame = tkinter.Frame(card_frame, background="green")
+    player_card_frame.grid(row=2, column=1, sticky="ew", rowspan=2)
+
+    result_text.set("")
+
+    # create the list to store the dealers and players hands
+    dealer_hand = []
+    player_hand = []
+
+    deal_player()
+    dealer_hand.append(deal_card(dealer_card_frame))
+    dealer_score_label.set(score_hand(dealer_hand))
+    deal_player()
 
 mainWindow = tkinter.Tk()
 
@@ -140,8 +166,8 @@ dealer_button.grid(row=0, column=0)
 player_button = tkinter.Button(button_frame, text="Player", command=deal_player)
 player_button.grid(row=0, column=1)
 
-new_game_button = tkinter.Button(button_frame, text="New Game", command=restart)
-new_game_button.grid(row=0, column=2)
+new_game_button = tkinter.Button(button_frame, text="New game", command=new_game)
+new_game_button.grid(row=0, column=3)
 
 # load cards
 cards = []
@@ -149,15 +175,18 @@ load_images(cards)
 print(cards)
 # create a new deck of cards and shuffle them.
 deck = list(cards)
-random.shuffle(deck)
 
 # create the list to store the dealers and players hands
 dealer_hand = []
 player_hand = []
 
-deal_player()
-dealer_hand.append(deal_card(dealer_card_frame))
-dealer_score_label.set(score_hand(dealer_hand))
-deal_player()
+new_game()
+# commenting this out so no duplication of code
+# deal_player()
+# dealer_hand.append(deal_card(dealer_card_frame))
+# dealer_score_label.set(score_hand(dealer_hand))
+# deal_player()
+random.shuffle(deck)
+
 
 mainWindow.mainloop()
