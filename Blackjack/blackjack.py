@@ -39,9 +39,10 @@ def deal_card(frame):
     tkinter.Label(frame, image=next_card[1], relief='raised').pack(side='left')
     return next_card
 
+
 def score_hand(hand):
-#     calculate the total score of all cards in the list
-#     only one ace can have the value 11, and this will be reduce to 1 if the hand would bust
+    # calculate the total score of all cards in the list
+    # only one ace can have the value 11, and this will be reduce to 1 if the hand would bust
     score = 0
     ace = False
     for next_card in hand:
@@ -83,7 +84,8 @@ def deal_player():
     player_score_label.set(player_score)
     if player_score > 21:
         result_text.set("Dealer Wins!")
-    # Python will let you use a global variable until you try to reassign its value then it will turn to a local variable
+    # Python will let you use a global variable until you try
+    # to reassign its value then it will turn to a local variable
 #     global player_score
 #     global player_ace
 #
@@ -127,16 +129,22 @@ def new_game():
     dealer_hand = []
     player_hand = []
 
+    deal_player()
+    dealer_hand.append(deal_card(dealer_card_frame))
+    dealer_score_label.set(score_hand(dealer_hand))
+    deal_player()
+
 
 def shuffle():
     random.shuffle(deck)
 
 
 def play():
-    deal_player()
-    dealer_hand.append(deal_card(dealer_card_frame))
-    dealer_score_label.set(score_hand(dealer_hand))
-    deal_player()
+    # commented this out since it gave 4 cards each. Meaning one busted before playing.
+    # deal_player()
+    # dealer_hand.append(deal_card(dealer_card_frame))
+    # dealer_score_label.set(score_hand(dealer_hand))
+    # deal_player()
 
     mainWindow.mainloop()
 
