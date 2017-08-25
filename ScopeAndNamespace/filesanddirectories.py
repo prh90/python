@@ -2,7 +2,8 @@ import os
 
 
 def list_directories(s):
-
+    # embedded function
+    # nonlocal looks one up outside the current function "enclosing scope"
     def dir_list(d):
         nonlocal tab_stop
         files = os.listdir(d)
@@ -15,7 +16,7 @@ def list_directories(s):
                 tab_stop -=1
             else:
                 print("\t" * tab_stop + f)
-                
+
     tab_stop = 0
     if os.path.exists(s):
         print("Directory listing of " + s)
