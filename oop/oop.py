@@ -17,3 +17,13 @@ hamilton = Kettle("Hamilton", 14.55)
 # print(hamilton.make)
 # print(hamilton.price)
 print("Models: {} = {}, {} = {}".format(kenwood.make, kenwood.price, hamilton.make, hamilton.price))
+# Same thing
+print("Models: {0.make} = {0.price}, {1.make} = {1.price}".format(kenwood, hamilton))
+
+"""
+Class: template for creating objects. All objects created using the same class will have the same characteristics.
+Object: an instance of a class.
+Instantiate: Create an instance of a class
+Method: a function defined in a class
+Attribute: a variable bound to an instance of a class
+"""
