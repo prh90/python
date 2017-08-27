@@ -1,5 +1,7 @@
 class Kettle(object):
     # initialize
+    power_source = "electricity"
+
     def __init__(self, make, price):
         self.make = make
         self.price = price
@@ -42,3 +44,9 @@ Instantiate: Create an instance of a class
 Method: a function defined in a class
 Attribute: a variable bound to an instance of a class
 """
+print(Kettle.power_source)
+print(kenwood.power_source)
+print(hamilton.power_source)
+print(Kettle.__dict__)
+print(kenwood.__dict__)
+print(hamilton.__dict__)
