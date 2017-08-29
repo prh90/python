@@ -14,6 +14,8 @@ class Account:
         self.name = name
         self.balance = balance
         self.transaction_list = []
+        if balance > 0:
+            self.transaction_list.append((Account._current_time(), balance))
         print("Account created for " + self.name)
         print("Initial balance {}".format(self.balance))
 
@@ -44,11 +46,22 @@ class Account:
                 amount *= -1
             print("{:6} {} on (local time was {})".format(amount, trans_type, date, date.astimezone()))
 
-
-
 pablo = Account("Pablo", 103)
 # pablo.withdraw(7000)
 pablo.deposit(500)
 pablo.withdraw(303)
 pablo.show_transactions()
 
+print("*"*50)
+
+steph = Account("Steph", 800)
+steph.deposit(100)
+steph.withdraw(200)
+steph.show_transactions()
+
+print("*"*50)
+
+cyn = Account("Cyn", 0)
+cyn.deposit(50)
+cyn.withdraw(20)
+cyn.show_transactions()
