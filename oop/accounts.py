@@ -11,35 +11,35 @@ class Account:
         return pytz.utc.localize(utc_time)
 
     def __init__(self, name, balance):
-        self.name = name
-        self.balance = balance
-        self.transaction_list = []
-        print("Account created for " + self.name)
+        self._name = name
+        self.__balance = balance
+        self._transaction_list = []
+        print("Account created for " + self._name)
         if balance > 0:
-            self.transaction_list.append((Account._current_time(), balance))
+            self._transaction_list.append((Account._current_time(), balance))
         else:
-            print("Initial balance {}".format(self.balance))
+            print("Initial balance {}".format(self.__balance))
 
     def deposit(self, amount):
         if amount > 0:
-            self.balance += amount
+            self.__balance += amount
             self.show_balance()
-            self.transaction_list.append((Account._current_time(), amount))
+            self._transaction_list.append((Account._current_time(), amount))
 
     def withdraw(self, amount):
         if amount > 0:
-            if self.balance - amount > 0:
-                self.balance -= amount
-                self.transaction_list.append((Account._current_time(), -amount))
+            if self.__balance - amount > 0:
+                self.__balance -= amount
+                self._transaction_list.append((Account._current_time(), -amount))
         else:
                 print("You do not have sufficient funds")
         self.show_balance()
 
     def show_balance(self):
-        print("Balance is {}".format(self.balance))
+        print("Balance is {}".format(self.__balance))
 
     def show_transactions(self):
-        for date, amount in self.transaction_list:
+        for date, amount in self._transaction_list:
             if amount > 0:
                 trans_type = "deposited"
             else:
@@ -62,7 +62,12 @@ steph.show_transactions()
 
 print("*"*50)
 
+# double underscore will negate anything trying to mess with it.
 cyn = Account("Cyn", 0)
+cyn.__balance = 10000
 cyn.deposit(50)
 cyn.withdraw(20)
 cyn.show_transactions()
+cyn.show_balance()
+
+print(cyn.__dict__)
