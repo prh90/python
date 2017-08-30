@@ -17,7 +17,7 @@ class Album:
     """ Class to represent an Album, using its tracklist
 
     Attributes:
-        Album_name (str): The name of the album
+        name (str): The name of the album
         year (int): The year the album was released
         artist (Artist): The Artist responsible for the album.
             If not sepcified the artist will default to an artist with the name "Various Artists"
@@ -42,10 +42,74 @@ class Album:
 
         Args:
             song (Song): A song to add.
-            position (optional[int]): If specified, the song will be added to that position in the track list - inserting it between other songs if necessary.
+            position (optional[int]): If specified, the song will be added to that position
+             in the track list - inserting it between other songs if necessary.
             Otherwise, song will be added at the end of the list
         """
         if position is None:
             self.tracks.append(song)
         else:
             self.tracks.insert(position, song)
+
+
+class Artist:
+    """ Store artist details
+
+    Attributes:
+        name (str): The name of the artist
+        albums (List{Album}): A list of the albums by this artist.
+            The list includes only those albums in this collection, it is
+            not and exhaustive list of the artist's published albums.
+
+    Methods:
+        add_album: Use to add a new album to the artist's albums list.
+    """
+
+    def __init__(self, name):
+        self.name = name
+        self.albums = []
+
+    def add_album(self, album):
+        """Add a new album to the list
+
+        Args:
+            album (Album): Album object to add to the list.
+                If the album is already present, it will not be added again
+                (although this is yet to be implemented)
+        """
+        self.albums.append(album)
+
+
+def load_data():
+    new_artist = None
+    new_album = None
+    artist_list = []
+
+    with open("albums.txt", "r") as albums:
+        for line in albums:
+            # data row should consist of (artist, album, year, song)
+            artist_field, album_field, year_field, song_field = tuple(line.strip('\n').split('\t'))
+            year_field = int(year_field)
+            print("{}:{}:{}:{}".format(artist_field, album_field, year_field, song_field))
+
+            if new_artist is None:
+                new_artist = Artist(artist_field)
+            elif new_artist.name != artist_field:
+                # we've just read details for a new artist
+                # store the current album in the current artist
+                # collection then create a new artist object
+                new_artist.add_album(new_album)
+                artist_list.append(new_artist)
+                new_artist = Artist(artist_field)
+                new_album = None
+
+            if new_album is None:
+                new_album = Album(album_field, year_field, new_artist)
+            elif new_album.name != album_field:
+                # We've just read a new album for the current artist
+                # store current album in the artist's collection then create a new album object
+                new_artist.add_album(new_album)
+                new_album = Album(album_field, year_field, new_artist)
+
+if __name__ == '__main__':
+    load_data()
