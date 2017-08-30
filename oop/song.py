@@ -1,5 +1,5 @@
 class Song:
-    """ CLass to represent a song
+    """ Class to represent a song
     Attributes:
         title (str): The title of the song
         artist(Artist): An artist object representing the songs creator
@@ -14,3 +14,6 @@ class Song:
             duration(optional[int]): Initial value for the 'duration' attribute.
                 will default to zero if none is given
             """
+        self.title = title
+        self.artist = artist
+        self.duration = duration
