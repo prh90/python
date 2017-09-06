@@ -9,6 +9,12 @@ print(pablo.score)
 pablo.lives -= 1
 print(pablo.lives)
 
+# getter - gets values
+print(pablo.get_name())
+# setter - sets values
+pablo.set_lives(300)
+
+
 dad = Player("Dad")
 print(dad.name)
 
