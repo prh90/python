@@ -2,25 +2,13 @@ from player import Player
 
 pablo = Player("Pablo")
 
-# print(pablo.name)
-# print(pablo.lives)
-# print(pablo.level)
-# print(pablo.score)
-pablo.lives -= 1
-print(pablo)
+from enemy import Enemy
 
+random_monster = Enemy("Basic Enemy", 12, 1)
+print(random_monster)
 
-pablo.level += 2
-print(pablo)
-
-pablo.level -= 1
-print(pablo)
-
-pablo.level += 1
-print(pablo)
-
-pablo.score = 500
-print(pablo)
+random_monster.take_damage(12)
+print(random_monster)
 
 # nothing in python is private, can be accessed, only thing we can do is rename it
 # If underlined and someone tries to access it, it can cause problems
