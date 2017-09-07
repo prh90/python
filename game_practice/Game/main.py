@@ -9,13 +9,14 @@ pablo = Player("Pablo")
 pablo.lives -= 1
 print(pablo)
 
-pablo.lives -= 1
+
+pablo.level += 1
 print(pablo)
 
 pablo.lives -= 1
 print(pablo)
 
-pablo.lives -= 1
+pablo.level += 1
 print(pablo)
 
 # nothing in python is private, can be accessed, only thing we can do is rename it
