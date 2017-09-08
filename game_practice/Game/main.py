@@ -34,6 +34,10 @@ print("*"*50)
 
 another_vamp = Vampire("Dracula")
 print("Another Vampire -{}".format(another_vamp))
+
+while another_vamp.alive:
+    another_vamp.take_damage(1)
+    print(another_vamp)
 ######################################################################
 
 # nothing in python is private, can be accessed, only thing we can do is rename it
