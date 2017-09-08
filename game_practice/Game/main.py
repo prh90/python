@@ -35,7 +35,7 @@ print("*"*50)
 another_vamp = Vampire("Dracula")
 print("Another Vampire -{}".format(another_vamp))
 
-while another_vamp.alive:
+while another_vamp._alive:
     another_vamp.take_damage(1)
     print(another_vamp)
 ######################################################################
