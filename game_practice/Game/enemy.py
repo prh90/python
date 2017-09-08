@@ -20,4 +20,9 @@ class Enemy:
 class Troll(Enemy):
 
     def __init__(self, name):
-        super(Troll, self).__init__(name=name, lives=1, hit_points=23)
+        super().__init__(name=name, lives=1, hit_points=23)
+        # super(Troll, self).__init__(name=name, lives=1, hit_points=23)
+        # The same thing the first one is a short hand version. Second is more explicit
+
+    def grunt(self):
+        print("Me {0.name}. {0.name} stomp you".format(self))

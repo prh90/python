@@ -12,10 +12,11 @@ from enemy import Enemy, Troll
 
 ugly_troll = Troll("Pug")
 print("Ugly troll - {}".format(ugly_troll))
+ugly_troll.grunt()
 
 another_troll = Troll("Trollski")
 print("Another troll - {}".format(another_troll))
-
+another_troll.grunt()
 
 
 # nothing in python is private, can be accessed, only thing we can do is rename it
