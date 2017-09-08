@@ -2,7 +2,7 @@ from player import Player
 
 pablo = Player("Pablo")
 
-from enemy import Enemy, Troll, Vampire
+from enemy import Enemy, Troll, Vampire, VampireKing
 
 # random_monster = Enemy("Basic Enemy", 12, 1)
 # print(random_monster)
@@ -35,10 +35,17 @@ print("*"*50)
 another_vamp = Vampire("Dracula")
 print("Another Vampire -{}".format(another_vamp))
 
-while another_vamp._alive:
-    another_vamp.take_damage(1)
-    print(another_vamp)
+# while another_vamp._alive:
+#     another_vamp.take_damage(1)
+#     print(another_vamp)
 ######################################################################
+pab = VampireKing("Pabs")
+print(pab)
+pab.take_damage(9)
+print(pab)
+
+######################################################################
+
 
 # nothing in python is private, can be accessed, only thing we can do is rename it
 # If underlined and someone tries to access it, it can cause problems
