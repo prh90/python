@@ -1,6 +1,21 @@
-from player import Player
+# Polymorphs
 
-pablo = Player("Pablo")
+a = 3
+b = "pablo"
+c = 1, 2, 3
+
+print(a)
+print(b)
+print(c)
+
+
+
+
+
+
+
+
+
 
 from enemy import Enemy, Troll, Vampire, VampireKing
 
@@ -12,37 +27,37 @@ from enemy import Enemy, Troll, Vampire, VampireKing
 ######################################################################
 
 # Testing inheritance out with Troll class
-ugly_troll = Troll("Pug")
-print("Ugly troll - {}".format(ugly_troll))
-ugly_troll.grunt()
-print("*"*50)
-
-another_troll = Troll("Trollski")
-print("Another troll - {}".format(another_troll))
-another_troll.take_damage(15)
-another_troll.grunt()
-print("*"*50)
+# ugly_troll = Troll("Pug")
+# print("Ugly troll - {}".format(ugly_troll))
+# ugly_troll.grunt()
+# print("*"*50)
+#
+# another_troll = Troll("Trollski")
+# print("Another troll - {}".format(another_troll))
+# another_troll.take_damage(15)
+# another_troll.grunt()
+# print("*"*50)
 
 ######################################################################
 
 # Vampire class created as a challenge
-vamp = Vampire("Vlad")
-print("A vampire - {}".format(vamp))
-vamp.take_damage(10)
-# print("Hit Points left: {}".format(vamp.hit_points))
-print("*"*50)
-
-another_vamp = Vampire("Dracula")
-print("Another Vampire -{}".format(another_vamp))
+# vamp = Vampire("Vlad")
+# print("A vampire - {}".format(vamp))
+# vamp.take_damage(10)
+# # print("Hit Points left: {}".format(vamp.hit_points))
+# print("*"*50)
+#
+# another_vamp = Vampire("Dracula")
+# print("Another Vampire -{}".format(another_vamp))
 
 # while another_vamp._alive:
 #     another_vamp.take_damage(1)
 #     print(another_vamp)
 ######################################################################
-pab = VampireKing("Pabs")
-print(pab)
-pab.take_damage(9)
-print(pab)
+# pab = VampireKing("Pabs")
+# print(pab)
+# pab.take_damage(9)
+# print(pab)
 
 ######################################################################
 
