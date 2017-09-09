@@ -49,8 +49,8 @@
       <file leaf-file-name="html_doc.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html_doc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+            <state relative-caret-position="474">
+              <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -95,7 +95,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="30" />
     <option name="y" value="-1057" />
     <option name="width" value="1860" />
@@ -295,15 +295,15 @@
       <option name="presentableId" value="Default" />
       <updated>1504675069309</updated>
       <workItem from="1504675073098" duration="7416000" />
-      <workItem from="1504740272789" duration="41149000" />
+      <workItem from="1504740272789" duration="42424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48565000" />
+    <option name="totallyTimeSpent" value="49840000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="-1057" width="1860" height="1027" extended-state="0" />
+    <frame x="30" y="-1057" width="1860" height="1027" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -404,8 +404,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html_doc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        <state relative-caret-position="474">
+          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
           <folding />
         </state>
       </provider>

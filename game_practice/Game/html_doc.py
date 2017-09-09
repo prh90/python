@@ -37,4 +37,14 @@ class Body(Tag):
             self.contents += str(tag)
 
         super().display()
+
+
+class HtmlDoc(object):
+    def __init__(self):
+        self._doc_type = DocType()
+        self._head = Head()
+        self._body = Body()
+
+    def add_tag(self, name, contents):
+        self._body.add_tag(name, contents)
         
