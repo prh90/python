@@ -29,4 +29,114 @@ SELECT * FROM artist_list WHERE name LIKE "jefferson%";
 DROP VIEW album_list;
 
 ################################################################
+################################################################
+################################################################
+CHALLENGE
+
+SELECT songs.title FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+WHERE albums.name="Forbidden";
+
+The Illusion of Power
+Get a Grip
+Can't Get Close Enough
+Shaking Off the Chains
+I Won't Cry for You
+Guilty as Hell
+Sick and Tired
+Rusty Angels
+Forbidden
+Kiss of Death
+
+################################################################
+
+SELECT songs.track, songs.title FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+WHERE albums.name="Forbidden"
+ORDER BY songs.track;
+
+1|The Illusion of Power
+2|Get a Grip
+3|Can't Get Close Enough
+4|Shaking Off the Chains
+5|I Won't Cry for You
+6|Guilty as Hell
+7|Sick and Tired
+8|Rusty Angels
+9|Forbidden
+10|Kiss of Death
+
+################################################################
+
+
+SELECT songs.title FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+WHERE artists.name="Deep Purple";
+
+Alot of output
+
+################################################################
+
+UPDATE artists
+SET name="One Kitten"
+WHERE name="Mehitabel";
+
+SELECT * FROM artists WHERE name="Mehitabel";
+3|Mehitabel
+
+SELECT * FROM artists WHERE name="One Kitten";
+3|One Kitten
+
+################################################################
+
+
+SELECT songs.title FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+WHERE artists.name="Aerosmith"
+ORDER BY songs.title;
+
+Alot of output
+
+################################################################
+
+
+SELECT count(title) FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+WHERE artists.name="Aerosmith";
+
+151
+
+################################################################
+
+SELECT DISTINCT songs.title FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+WHERE artists.name="Aerosmith"
+ORDER BY songs.title;
+
+################################################################
+
+SELECT count(DISTINCT title) FROM songs 
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+WHERE artists.name="Aerosmith";
+
+128
+
+################################################################
+
+SELECT count(DISTINCT name) FROM artists 
+WHERE artists.name="Aerosmith";
+
+################################################################
+
+SELECT count(DISTINCT albums.name) FROM albums 
+INNER JOIN artists ON albums.artist = artists._id 
+WHERE artists.name="Aerosmith";
+
+13
+
 
