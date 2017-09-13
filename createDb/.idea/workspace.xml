@@ -11,20 +11,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/createDB$contacts.coverage" NAME="contacts Coverage Results" MODIFIED="1505274974848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/createDB$contacts2.coverage" NAME="contacts2 Coverage Results" MODIFIED="1505280428598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/createDB$contacts.coverage" NAME="contacts Coverage Results" MODIFIED="1505276768808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/createDB$checkdb.coverage" NAME="checkdb Coverage Results" MODIFIED="1505280434908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="contacts.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="contacts.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contacts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="346">
+              <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
               <folding>
-                <marker date="1505274974535" expanded="true" signature="68:142" ph="CREATE TABLE... contacts" />
-                <marker date="1505274974535" expanded="true" signature="157:240" ph="INSERT INTO contacts... " />
-                <marker date="1505274974535" expanded="true" signature="255:315" ph="INSERT INTO contacts... " />
-                <marker date="1505274974535" expanded="true" signature="357:379" ph="SELECT * FRO... contacts" />
+                <marker date="1505278016563" expanded="true" signature="68:142" ph="CREATE TABLE... contacts" />
+                <marker date="1505278016563" expanded="true" signature="157:240" ph="INSERT INTO contacts... " />
+                <marker date="1505278016563" expanded="true" signature="255:315" ph="INSERT INTO contacts... " />
+                <marker date="1505278016563" expanded="true" signature="357:379" ph="SELECT * FRO... contacts" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contacts2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/contacts2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <marker date="1505280551066" expanded="true" signature="71:148" ph="UPDATE conta... " />
+                <marker date="1505280551066" expanded="true" signature="427:449" ph="SELECT * FRO... contacts" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkdb.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checkdb.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <marker date="1505280215665" expanded="true" signature="84:106" ph="SELECT * FRO... contacts" />
               </folding>
             </state>
           </provider>
@@ -48,6 +75,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/contacts.py" />
+        <option value="$PROJECT_DIR$/checkdb.py" />
+        <option value="$PROJECT_DIR$/contacts2.py" />
       </list>
     </option>
   </component>
@@ -113,7 +142,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.contacts">
+  <component name="RunManager" selected="Python.checkdb">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -195,6 +224,24 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="checkdb" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="createDb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/checkdb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="contacts" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -213,9 +260,34 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="contacts2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="createDb" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/contacts2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Python.contacts" />
+      <item index="1" class="java.lang.String" itemvalue="Python.contacts2" />
+      <item index="2" class="java.lang.String" itemvalue="Python.checkdb" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.contacts" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.checkdb" />
+        <item index="1" class="java.lang.String" itemvalue="Python.contacts2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.contacts" />
       </list>
     </recent_temporary>
   </component>
@@ -232,12 +304,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505271513280</updated>
-      <workItem from="1505271519439" duration="3179000" />
+      <workItem from="1505271519439" duration="8176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3179000" />
+    <option name="totallyTimeSpent" value="8176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="30" y="-1057" width="1861" height="1027" extended-state="0" />
@@ -285,13 +357,34 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/contacts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="346">
+          <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
           <folding>
-            <marker date="1505274974535" expanded="true" signature="68:142" ph="CREATE TABLE... contacts" />
-            <marker date="1505274974535" expanded="true" signature="157:240" ph="INSERT INTO contacts... " />
-            <marker date="1505274974535" expanded="true" signature="255:315" ph="INSERT INTO contacts... " />
-            <marker date="1505274974535" expanded="true" signature="357:379" ph="SELECT * FRO... contacts" />
+            <marker date="1505278016563" expanded="true" signature="68:142" ph="CREATE TABLE... contacts" />
+            <marker date="1505278016563" expanded="true" signature="157:240" ph="INSERT INTO contacts... " />
+            <marker date="1505278016563" expanded="true" signature="255:315" ph="INSERT INTO contacts... " />
+            <marker date="1505278016563" expanded="true" signature="357:379" ph="SELECT * FRO... contacts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkdb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1505280215665" expanded="true" signature="84:106" ph="SELECT * FRO... contacts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacts2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1505280551066" expanded="true" signature="71:148" ph="UPDATE conta... " />
+            <marker date="1505280551066" expanded="true" signature="427:449" ph="SELECT * FRO... contacts" />
           </folding>
         </state>
       </provider>

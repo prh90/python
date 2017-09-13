@@ -29,5 +29,7 @@ for name, phone, email in cursor:
 #     print(email)
 #     print("#"*40)
 cursor.close()
+db.commit()
 db.close()
-
+# Have to commit the changes made so the database keeps record of what you inserted.
+# Else it will be lost once connection is ended.
