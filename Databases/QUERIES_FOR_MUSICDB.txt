@@ -130,6 +130,7 @@ WHERE artists.name="Aerosmith";
 
 SELECT count(DISTINCT name) FROM artists 
 WHERE artists.name="Aerosmith";
+1
 
 ################################################################
 
