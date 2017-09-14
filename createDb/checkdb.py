@@ -2,7 +2,12 @@ import sqlite3
 
 conn = sqlite3.connect("contacts.sqlite")
 
-for row in conn.execute("SELECT * FROM contacts"):
-    print(row)
+name = input("Please enter the name of who you are looking for: ")
 
+find = ("SELECT * FROM contacts WHERE name = {}".format(name))
+print(find)
+
+update_cursor = conn.cursor()
+
+update_cursor.close()
 conn.close()
