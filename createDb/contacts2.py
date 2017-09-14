@@ -24,7 +24,7 @@ update_cursor.close()
 
 # using the cursor to make the connection is a way to commit.
 
-for name, phone, email in db.execute("SELECT * FROM contacts "):
+for name, phone, email in db.execute("SELECT * FROM contacts"):
     print(name)
     print(phone)
     print(email)
