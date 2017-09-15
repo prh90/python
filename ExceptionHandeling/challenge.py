@@ -17,10 +17,12 @@ def getint(prompt):
         try:
             number = int(input(prompt))
             return number
-        except ValueError:
-            print("Invalid number entered, please try again")
+        # When handling multiple errors, make sure you get them in the right order because it can loop
+        # More specific exceptions go first
         except EOFError:
             sys.exit(1)
+        except:  # ValueError # If empty it takes all errors known as wildcard except
+            print("Invalid number entered, please try again")
         finally:
             print("The Finally clause always executes")
 
