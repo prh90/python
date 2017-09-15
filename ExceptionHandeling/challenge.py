@@ -21,6 +21,8 @@ def getint(prompt):
             print("Invalid number entered, please try again")
         except EOFError:
             sys.exit(1)
+        finally:
+            print("The Finally clause always executes")
 
 
 first_number = getint("Please enter first number: ")
@@ -31,3 +33,5 @@ try:
 except ZeroDivisionError:
     print("Cant divide by zero son")
     sys.exit(2)
+else:
+    print("Division performed successfully")
