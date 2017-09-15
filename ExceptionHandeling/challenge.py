@@ -18,4 +18,3 @@ def getint():
             return number
         except ValueError:
             print("Invalid number entered, please try again")
-            
