@@ -46,6 +46,16 @@ class Penguin(object):
 #     duck.swim()
 #     duck.quack()
 
+class Flock(object):
+    def __init__(self):
+        self.flock = []
+
+    def add_duck(self, duck):
+        self.flock.append(duck)
+
+    def migrate(self):
+        for duck in self.flock:
+            duck.fly()
 
 if __name__ == '__main__':
     donald = Duck()
