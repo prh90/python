@@ -50,7 +50,7 @@ class Flock(object):
     def __init__(self):
         self.flock = []
 
-    def add_duck(self, duck):
+    def add_duck(self, duck: Duck) -> None:
         self.flock.append(duck)
 
     def migrate(self):
