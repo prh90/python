@@ -9,7 +9,7 @@ db.execute("CREATE TABLE IF NOT EXISTS  transactions (time TIMESTAMP NOT NULL, a
 class Account(object):
 
     def __init__(self, name: str, opening_balance: int = 0):
-        cursor = db.execute("SELECT name, balance FROM account WHERE (name=?)", {name,})
+        cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
         row = cursor.fetchone()
 
         if row:
@@ -18,7 +18,7 @@ class Account(object):
         else:
             self.name = name
             self._balance = opening_balance
-            cursor.execute("INSERT INTO acounts VALUES(?,?)", (name, opening_balance))
+            cursor.execute("INSERT INTO accounts VALUES(?,?)", (name, opening_balance))
             cursor.connection.commit()
             print("Account created for {}.".format(self.name, end=''))
         self.show_balance()
