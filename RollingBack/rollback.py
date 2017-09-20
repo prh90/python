@@ -14,7 +14,7 @@ class Account(object):
 
         if row:
             self.name, self._balance = row
-            print("Retrieved record for {}".format(self.name), end='')
+            print("Retrieved record for {}, ".format(self.name), end='')
         else:
             self.name = name
             self._balance = opening_balance
@@ -48,3 +48,11 @@ if __name__ == '__main__':
     pablo.show_balance()
     pablo.withdraw(42)
     pablo.show_balance()
+
+    print("*"*50)
+    tim = Account("Tim")
+    print("*"*50)
+    eric = Account("Eric", 9000)
+
+    db.close()
+    
