@@ -9,7 +9,7 @@ db.execute("CREATE TABLE IF NOT EXISTS  transactions (time TIMESTAMP NOT NULL, a
 class Account(object):
 
     @staticmethod
-    def _current_time(self):
+    def _current_time():
         return pytz.utc.localize(datetime.datetime.utcnow())
 
     def __init__(self, name: str, opening_balance: int = 0):
