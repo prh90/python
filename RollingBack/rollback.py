@@ -25,12 +25,13 @@ class Account(object):
 
     def deposit(self, amount: int) -> float:
             if amount > 0.0:
-                self._balance += amount
+                # self._balance += amount
+                new_balance = self._balance + amount
                 print("{:.2f} deposited".format(amount/100))
             return self._balance/100
 
     def withdraw(self, amount: int) -> float:
-        if 0< amount <= self._balance:
+        if 0 < amount <= self._balance:
             self._balance -= amount
             print("{:.2f} withdrew".format(amount/100))
             return amount/100
@@ -50,9 +51,9 @@ if __name__ == '__main__':
     pablo.show_balance()
 
     print("*"*50)
-    tim = Account("Tim")
+    tim = Account("TimL")
     print("*"*50)
     eric = Account("Eric", 9000)
+    mom = Account("Mom")
 
     db.close()
-    
