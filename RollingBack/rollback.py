@@ -8,6 +8,10 @@ db.execute("CREATE TABLE IF NOT EXISTS  transactions (time TIMESTAMP NOT NULL, a
 
 class Account(object):
 
+    @staticmethod
+    def _current_time(self):
+        return pytz.utc.localize(datetime.datetime.utcnow())
+
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
         row = cursor.fetchone()
@@ -27,7 +31,7 @@ class Account(object):
             if amount > 0.0:
                 # self._balance += amount
                 new_balance = self._balance + amount
-                deposit_time = pytz.utc.localize(datetime.datetime.utcnow())
+                deposit_time = Account._current_time()
                 db.execute("UPDATE accounts SET balance = ? WHERE (name=?)", (new_balance, self.name))
                 db.execute("INSERT INTO transactions VALUES(?, ?, ?)",(deposit_time, self.name, amount))
                 db.commit()
@@ -37,7 +41,13 @@ class Account(object):
 
     def withdraw(self, amount: int) -> float:
         if 0 < amount <= self._balance:
-            self._balance -= amount
+            # self._balance -= amount
+            new_balance = self._balance - amount
+            withdrawal_time = Account._current_time()
+            db.execute("UPDATE accounts SET balance = ? WHERE (name=?)", (new_balance, self.name))
+            db.execute("INSERT INTO transactions VALUES(?, ?, ?)", (withdrawal_time, self.name, -amount))
+            db.commit()
+            self._balance = new_balance
             print("{:.2f} withdrew".format(amount/100))
             return amount/100
         else:
@@ -52,7 +62,8 @@ if __name__ == '__main__':
     pablo.deposit(10000)
     pablo.withdraw(57)
     pablo.show_balance()
-    pablo.withdraw(42)
+    pablo.deposit(4200)
+    pablo.withdraw(3500)
     pablo.show_balance()
 
     print("*"*50)
@@ -60,5 +71,6 @@ if __name__ == '__main__':
     print("*"*50)
     eric = Account("Eric", 9000)
     mom = Account("Mom")
+    Account("Pablo")
 
     db.close()
