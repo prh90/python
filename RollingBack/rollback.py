@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3, pytz, datetime
 
 db = sqlite3.connect("accounts.sqlite")
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")
@@ -27,6 +27,11 @@ class Account(object):
             if amount > 0.0:
                 # self._balance += amount
                 new_balance = self._balance + amount
+                deposit_time = pytz.utc.localize(datetime.datetime.utcnow())
+                db.execute("UPDATE accounts SET balance = ? WHERE (name=?)", (new_balance, self.name))
+                db.execute("INSERT INTO transactions VALUES(?, ?, ?)",(deposit_time, self.name, amount))
+                db.commit()
+                self._balance = new_balance
                 print("{:.2f} deposited".format(amount/100))
             return self._balance/100
 
