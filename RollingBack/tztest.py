@@ -39,7 +39,7 @@ class Account(object):
 
     def _save_update(self, amount):
         new_balance = self._balance + amount
-        deposit_time, zone = Account._current_time(), # <-- unpack the returned tuple
+        deposit_time, zone = Account._current_time() # <-- unpack the returned tuple
         picked_zone = pickle.dumps(zone)
         db.execute("UPDATE accounts SET balance = ? WHERE (name=?)", (new_balance, self.name))
         db.execute("INSERT INTO transactions VALUES(?, ?, ?, ?)", (deposit_time, self.name, amount, picked_zone))
