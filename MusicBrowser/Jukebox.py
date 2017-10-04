@@ -43,3 +43,8 @@ songLV.set(("Choose an album",))
 songList = tkinter.Listbox(mainWindow, listvariable=songLV)
 songList.grid(row=1, column=2, sticky='nsew', padx=(30, 0))
 songList.config(border=2, relief='sunken')
+
+# ===== Mainloop =====
+mainWindow.mainloop()
+print("Closing database connection")
+conn.close()
