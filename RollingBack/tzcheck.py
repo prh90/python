@@ -11,11 +11,13 @@ db = sqlite3.connect("accounts.sqlite", detect_types=sqlite3.PARSE_DECLTYPES)
 
 for row in db.execute("SELECT * FROM transactions"):
     utc_time = row[0]
-    picked_zone = row[3]
-    zone = pickle.loads(picked_zone)
+    # picked_zone = row[3]
+    # zone = pickle.loads(picked_zone)
+    zone = pytz.timezone("")
     local_time = pytz.utc.localize(utc_time).astimezone(zone)
     print("{}\t{}\t[]".format(utc_time, local_time, local_time.tzinfo))
 
+# always work to store in utc then convert to local if you want to see it
 # for row in db.execute("SELECT * FROM transactions"):
 #     utc_time = row[0]
 #     local_time = pytz.utc.localize(utc_time).astimezone()
