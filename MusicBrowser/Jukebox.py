@@ -28,7 +28,10 @@ def get_albums(event):
     artist_name = lb.get(index),
 
     # get the artist ID from the database row
-    artist_id = conn.execute()
+    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
+    alist = []
+    for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist = ? ORDER BY albums.name", artist_id):
+        alist.append(row[0])
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browswer")
