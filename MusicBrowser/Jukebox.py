@@ -21,6 +21,15 @@ class Scrollbox(tkinter.Listbox):
         self.scrollbar.grid(row=row, column=column, sticky='nse', rowspan=rowspan)
         self['yscrollcommand'] = self.scrollbar.set
 
+
+def get_albums(event):
+    lb =event.widget
+    index = lb.curselection()[0]
+    artist_name = lb.get(index),
+
+    # get the artist ID from the database row
+    artist_id = conn.execute()
+
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browswer")
 mainWindow.geometry('1024x768')
@@ -49,6 +58,10 @@ artistList = Scrollbox(mainWindow)
 artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30, 0))
 artistList.config(border=2, relief='sunken')
 
+for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
+    artistList.insert(tkinter.END, artist[0])
+
+artistList.bind('<<ListboxSelect>>', get_albums)
 
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
@@ -67,8 +80,8 @@ songList.config(border=2, relief='sunken')
 
 
 # ===== Mainloop =====
-testList = range(0, 100)
-albumLV.set(tuple(testList))
+# testList = range(0, 100)
+# albumLV.set(tuple(testList))
 # artistLV.set(tuple(testList))
 # albumLV.set((1, 2, 3, 4, 5))
 mainWindow.mainloop()
