@@ -23,7 +23,7 @@ class Scrollbox(tkinter.Listbox):
 
 
 def get_albums(event):
-    lb =event.widget
+    lb = event.widget
     index = lb.curselection()[0]
     artist_name = lb.get(index),
 
@@ -32,6 +32,7 @@ def get_albums(event):
     alist = []
     for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist = ? ORDER BY albums.name", artist_id):
         alist.append(row[0])
+    albumLV.set(tuple(alist))
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browswer")
