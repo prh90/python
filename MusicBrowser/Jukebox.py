@@ -4,8 +4,6 @@ try:
 except ImportError:
     import Tkinter as tkinter
 
-conn = sqlite3.connect('music.sqlite')
-
 
 class Scrollbox(tkinter.Listbox):
 
@@ -30,6 +28,7 @@ class DataListBox(Scrollbox):
 
         self.linked_box = None
         self.link_field = None
+        self.link_value = None
 
         self.cursor = connection.cursor()
         self.table = table
@@ -51,6 +50,7 @@ class DataListBox(Scrollbox):
         widget.link_field = link_field
 
     def requery(self, link_value=None):
+        self.link_value = link_value  # store the id, so we know the "master" record we're populated from
         if link_value and self.link_field:
             sql = self.sql_select + " WHERE " + self.link_field + "=?" + self.sql_sort
             print(sql)  # TODO delete this line
@@ -72,9 +72,16 @@ class DataListBox(Scrollbox):
             index = self.curselection()[0]
             value = self.get(index),
 
+            # get the ID from databse row
+            # Make sure we're are getting the correct one, by including the link_value if appropriate
+            if self.link_value:
+                value = value[0], self.link_value
+                sql_where = " WHERE " + self.field + "=? AND " + self.link_field + "=?"
+            else:
+                sql_where = " WHERE " + self.field + "=?"
 
             # get the artist ID from the database row
-            link_id = self.cursor.execute(self.sql_select + " WHERE " + self.field + "=?", value).fetchone()[1]
+            link_id = self.cursor.execute(self.sql_select + sql_where, value).fetchone()[1]
             self.linked_box.requery(link_id)
 
             # artist_id = conn.execute("SELECT artists._id FROM
@@ -87,80 +94,68 @@ class DataListBox(Scrollbox):
             # songLV.set(("Choose an album",))
 
 
-def get_songs(event):
-    lb = event.widget
-    print(lb.curselection()[0])
-    index = int(lb.curselection()[0])
-    print(index)
-    album_name = lb.get(index),
-    print(album_name)
-
-    # get the artist ID from the database
-    album_id = conn.execute("SELECT albums._id FROM albums WHERE albums.name=?", album_name).fetchone()
-    alist = []
-    for x in conn.execute("SELECT songs.title FROM songs WHERE songs.album = ? ORDER BY songs.track", album_id):
-        alist.append(x[0])
-    songLV.set(tuple(alist))
+if __name__ == '__main__':
+    conn = sqlite3.connect('music.sqlite')
 
 
-mainWindow = tkinter.Tk()
-mainWindow.title("Music DB Browswer")
-mainWindow.geometry('1024x768')
+    mainWindow = tkinter.Tk()
+    mainWindow.title("Music DB Browswer")
+    mainWindow.geometry('1024x768')
 
-mainWindow.columnconfigure(0, weight=2)
-mainWindow.columnconfigure(1, weight=2)
-mainWindow.columnconfigure(2, weight=2)
-mainWindow.columnconfigure(3, weight=1)  # spacer column on the right
+    mainWindow.columnconfigure(0, weight=2)
+    mainWindow.columnconfigure(1, weight=2)
+    mainWindow.columnconfigure(2, weight=2)
+    mainWindow.columnconfigure(3, weight=1)  # spacer column on the right
 
-mainWindow.rowconfigure(0, weight=1)
-mainWindow.rowconfigure(1, weight=5)
-mainWindow.rowconfigure(2, weight=5)
-mainWindow.rowconfigure(3, weight=1)
+    mainWindow.rowconfigure(0, weight=1)
+    mainWindow.rowconfigure(1, weight=5)
+    mainWindow.rowconfigure(2, weight=5)
+    mainWindow.rowconfigure(3, weight=1)
 
-# ===== labels =====
-tkinter.Label(mainWindow, text="Artists").grid(row=0, column=0)
-tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
-tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
+    # ===== labels =====
+    tkinter.Label(mainWindow, text="Artists").grid(row=0, column=0)
+    tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
+    tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
 
-# ===== Artists Listbox =====
-# artistLV = tkinter.Variable(mainWindow)
-# artistLV.set(("Artist",))
-# artistList = Scrollbox(mainWindow, listvariable=artistLV)
-# Added the above code to test it out
-# artistList = Scrollbox(mainWindow)
-artistList = DataListBox(mainWindow, conn, "artists", "name")
-artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30, 0))
-artistList.config(border=2, relief='sunken')
+    # ===== Artists Listbox =====
+    # artistLV = tkinter.Variable(mainWindow)
+    # artistLV.set(("Artist",))
+    # artistList = Scrollbox(mainWindow, listvariable=artistLV)
+    # Added the above code to test it out
+    # artistList = Scrollbox(mainWindow)
+    artistList = DataListBox(mainWindow, conn, "artists", "name")
+    artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30, 0))
+    artistList.config(border=2, relief='sunken')
 
-artistList.requery()
+    artistList.requery()
 
-# ===== Albums Listbox =====
-albumLV = tkinter.Variable(mainWindow)
-albumLV.set(("Choose an artist",))
-albumList = DataListBox(mainWindow, conn,  "albums", "name", sort_order=("name",))
-albumList.requery()
-albumList.grid(row=1, column=1, sticky='nsew', padx=(30, 0))
-albumList.config(border=2, relief='sunken')
+    # ===== Albums Listbox =====
+    albumLV = tkinter.Variable(mainWindow)
+    albumLV.set(("Choose an artist",))
+    albumList = DataListBox(mainWindow, conn,  "albums", "name", sort_order=("name",))
+    # albumList.requery()
+    albumList.grid(row=1, column=1, sticky='nsew', padx=(30, 0))
+    albumList.config(border=2, relief='sunken')
 
-# albumList.bind('<<ListboxSelect>>', get_songs)
-artistList.link(albumList, "artist")
+    # albumList.bind('<<ListboxSelect>>', get_songs)
+    artistList.link(albumList, "artist")
 
 
-# ===== Songs Listbox =====
-songLV = tkinter.Variable(mainWindow)
-songLV.set(("Choose an album",))
-songList = DataListBox(mainWindow, conn, "songs", "title", sort_order=("track", "title"))
-songList.requery()
-songList.grid(row=1, column=2, sticky='nsew', padx=(30, 0))
-songList.config(border=2, relief='sunken')
+    # ===== Songs Listbox =====
+    songLV = tkinter.Variable(mainWindow)
+    songLV.set(("Choose an album",))
+    songList = DataListBox(mainWindow, conn, "songs", "title", sort_order=("track", "title"))
+    # songList.requery()
+    songList.grid(row=1, column=2, sticky='nsew', padx=(30, 0))
+    songList.config(border=2, relief='sunken')
 
-albumList.link(songList, "album")
+    albumList.link(songList, "album")
 
-# ===== Mainloop =====
-# testList = range(0, 100)
-# albumLV.set(tuple(testList))
-# artistLV.set(tuple(testList))
-# albumLV.set((1, 2, 3, 4, 5))
-mainWindow.mainloop()
-print("Closing database connection")
-conn.close()
+    # ===== Mainloop =====
+    # testList = range(0, 100)
+    # albumLV.set(tuple(testList))
+    # artistLV.set(tuple(testList))
+    # albumLV.set((1, 2, 3, 4, 5))
+    mainWindow.mainloop()
+    print("Closing database connection")
+    conn.close()
