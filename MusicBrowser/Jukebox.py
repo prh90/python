@@ -41,30 +41,39 @@ class DataListBox(Scrollbox):
     def clear(self):
         self.delete(0, tkinter.END)
 
-    def requery(self):
-        print(self.sql_select + self.sql_sort)  #  TODO delete this line
-        self.cursor.execute(self.sql_select + self.sql_sort)
+    def requery(self, link_value=None):
+        if link_value:
+            sql = self.sql_select + " WHERE " + "artist" + "=?" + self.sql_sort
+            print(sql)  # TODO delete this line
+            self.cursor.execute(sql, (link_value,))
+        else:
+            print(self.sql_select + self.sql_sort)  #  TODO delete this line
+            self.cursor.execute(self.sql_select + self.sql_sort)
 
         #  clear the listbox contents before re-loading
         self.clear()
         for value in self.cursor:
             self.insert(tkinter.END, value[0])
 
+    def get_albums(self, event):
+        lb = event.widget
+        index = lb.curselection()[0]
+        # print(index)
+        artist_name = lb.get(index),
+        # print(artist_name)
 
-def get_albums(event):
-    lb = event.widget
-    index = lb.curselection()[0]
-    print(index)
-    artist_name = lb.get(index),
-    print(artist_name)
+        # get the artist ID from the database row
+        artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()[0]
+        albumList.requery(artist_id)
 
-    # get the artist ID from the database row
-    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
-    alist = []
-    for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist = ? ORDER BY albums.name", artist_id):
-        alist.append(row[0])
-    albumLV.set(tuple(alist))
-    songLV.set(("Choose an album",))
+        # artist_id = conn.execute("SELECT artists._id FROM
+        # artists WHERE artists.name=?", artist_name).fetchone()
+        # alist = []
+        # for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist = ?
+        # ORDER BY albums.name", artist_id):
+        #     alist.append(row[0])
+        # albumLV.set(tuple(alist))
+        # songLV.set(("Choose an album",))
 
 
 def get_songs(event):
