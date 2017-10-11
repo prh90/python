@@ -55,16 +55,15 @@ class DataListBox(Scrollbox):
         for value in self.cursor:
             self.insert(tkinter.END, value[0])
 
-    def get_albums(self, event):
-        lb = event.widget
-        index = lb.curselection()[0]
-        # print(index)
-        artist_name = lb.get(index),
-        # print(artist_name)
+    def on_select(self):
+        # lb = event.widget  # TODO delete this line
+        index = self.curselection()[0]
+        value = self.get(index),
+
 
         # get the artist ID from the database row
-        artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()[0]
-        albumList.requery(artist_id)
+        link_id = self.cursor.execute(self.sql_select + "WHERE " + self.field + "=?", value).fetchone()[1]
+        albumList.requery(link_id)
 
         # artist_id = conn.execute("SELECT artists._id FROM
         # artists WHERE artists.name=?", artist_name).fetchone()
