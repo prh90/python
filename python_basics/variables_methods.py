@@ -11,3 +11,5 @@ single_quotes = 'strings can have single quotes'
 
 print(my_variable)
 print(single_quotes)
+print("Hello, world!")
+print(123)
