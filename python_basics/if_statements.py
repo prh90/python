@@ -29,9 +29,10 @@ def who_do_you_know():
     people = input("Enter the name of the people you know, separated by commas: ")
     people_list = people.split(",")
     # How to remove a whitespece
-    people_without_spaces = []
-    for person in people_list:
-        people_without_spaces.append(person.strip())
+    # people_without_spaces = []
+    # for person in people_list:
+    #     people_without_spaces.append(person.strip())
+    people_without_spaces = ([person.strip() for person in people_list])
 
     return people_without_spaces
 
