@@ -31,10 +31,24 @@ class Student:
     def average(self):
         return (sum(self.marks)/len(self.marks))
 
+    # you can take self oyt by doing this adding cls classmethod
+    # @classmethod
+    # or you can pass in
+    @staticmethod  # and you dont pass anything in as an arguemnt
+    def go_to_school():
+        # print("I'm going to {}".format(self.school))
+        print("I'm going to school")
+        # print("I'm a {}".format(cls))
+
 
 anna = Student("Anna", "MIT")
-anna.marks.append(56)
-anna.marks.append(71)
-anna.marks.append(63)
-print(anna.marks)
-print(anna.average())
+anna.go_to_school()
+# If we ran taking self out of the go to school method
+# It will fail becuase you technically pass an argument
+# in the name of the object itself, so you are passinbg in anna
+Student.go_to_school()  # can also call it by class itself
+# anna.marks.append(56)
+# anna.marks.append(71)
+# anna.marks.append(63)
+# print(anna.marks)
+# print(anna.average())
