@@ -14,7 +14,7 @@ items = []
 
 
 class Item(Resource):
-    @jwt_required()
+    @jwt_required()  # can use it for any method that needs auth
     def get(self, name):
         item = next(filter(lambda x: x['name'] == name, items), None)
         # None at the end is if next cant find anything else it returns none
@@ -36,6 +36,17 @@ class Item(Resource):
         global items  # if not declared it will think items is only local
         items = list(filter(lambda x: x['name'] != name, items))
         return {'message': 'Item deleted'}, 200
+
+    def put(self, name):
+        data = request.get_json()
+        item = next(filter(lambda x: x['name'] == name, items), None)
+        if item is None:
+            item = {'name': name, 'price': data['price']}
+            items.append(item)
+        else:
+            item.update(data)
+        return item, 200
+
 
 
 class ItemList(Resource):
