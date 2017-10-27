@@ -32,6 +32,11 @@ class Item(Resource):
         items.append(item)
         return item, 201
 
+    def delete(self, name):
+        global items  # if not declared it will think items is only local
+        items = list(filter(lambda x: x['name'] != name, items))
+        return {'message': 'Item deleted'}, 200
+
 
 class ItemList(Resource):
     def get(self):
