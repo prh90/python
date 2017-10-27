@@ -1,6 +1,7 @@
 from werkzeug.security import safe_str_cmp  # compares strings
 from user import User
 
+
 users = [
     User(1, 'bob', 'asdf')
 ]
