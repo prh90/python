@@ -14,6 +14,13 @@ items = []
 
 
 class Item(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument('price',  # only defined price, any else will be deleted
+        type=float,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+
     @jwt_required()  # can use it for any method that needs auth
     def get(self, name):
         item = next(filter(lambda x: x['name'] == name, items), None)
@@ -24,12 +31,10 @@ class Item(Resource):
         return {'item': item}, 200 if item else 404
 
     def post(self, name):
-        parser = reqparse.RequestParser()
-        parser.add_argument('name', type=str, required=True, help="This field cannot be left blank!")
         if next(filter(lambda x: x['name'] == name, items), None) is not None:
             return {'message': "An item with the name '{}' already exists".format(name)}, 400
 
-        data = parser.parse_args()
+        data = Item.parser.parse_args()
         item = {'name': name, 'price': data['price']}
         items.append(item)
         return item, 201
@@ -40,13 +45,7 @@ class Item(Resource):
         return {'message': 'Item deleted'}, 200
 
     def put(self, name):
-        parser = reqparse.RequestParser()
-        parser.add_argument('price',  # only defined price, any else will be deleted
-            type=float,
-            required=True,
-            help="This field cannot be left blank!"
-        )
-        data = parser.parse_args()
+        data = Item.parser.parse_args()
         item = next(filter(lambda x: x['name'] == name, items), None)
         if item is None:
             item = {'name': name, 'price': data['price']}
