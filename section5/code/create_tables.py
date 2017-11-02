@@ -11,7 +11,7 @@ create_table = "CREATE TABLE IF NOT EXISTS items (name text, price real)"
 #  To have auto increment you cant use int you spell it out
 cursor.execute(create_table)
 
-cursor.execute("INSERT INTO items VALUES ('test', 10.99)")
+# cursor.execute("INSERT INTO items VALUES ('test', 10.99)")
 
 connection.commit()
 
