@@ -5,26 +5,10 @@ from flask_jwt import jwt_required
 
 class Item(Resource):
     parser = reqparse.RequestParser()
-    parser.add_argument('price',  # only defined price, any else will be deleted
-        type=float,
-        required=True,
-        help="This field cannot be left blank!"
-    )
+    parser.add_argument('price',  type=float, required=True, help="This field cannot be left blank!")
 
     @jwt_required()  # can use it for any method that needs auth
     def get(self, name):
-        # connection = sqlite3.connect('data.db')
-        # cursor = connection.cursor()
-        #
-        # query = "SELECT * FROM items WHERE name=?"
-        # # item = next(filter(lambda x: x['name'] == name, items), None)
-        # # None at the end is if next cant find anything else it returns none
-        # # return {'item': item}, 200 if item else 404
-        # result = cursor.execute(query, (name,))
-        # row = result.fetchone()
-        # connection.close()
-        # if row:
-        #     return {'item': {'name': row[0], 'price': row[1]}}
         item = self.find_by_name(name)
         if item:
             return item
@@ -42,14 +26,9 @@ class Item(Resource):
         if row:
             return {'item': {'name': row[0], 'price': row[1]}}
 
-
-
     def post(self, name):
         if self.find_by_name(name):
             return {'message': "An item with the name '{}' already exists".format(name)}, 400
-
-        # if next(filter(lambda x: x['name'] == name, items), None) is not None:
-            # return {'message': "An item with the name '{}' already exists".format(name)}, 400
 
         data = Item.parser.parse_args()
         item = {'name': name, 'price': data['price']}
@@ -73,7 +52,6 @@ class Item(Resource):
         connection.close()
 
     def delete(self, name):
-        # items = list(filter(lambda x: x['name'] != name, items))
         if self.find_by_name(name):
             connection = sqlite3.connect('data.db')
             cursor = connection.cursor()
@@ -90,7 +68,6 @@ class Item(Resource):
     def put(self, name):
         data = Item.parser.parse_args()
         item = self.find_by_name(name)
-        # item = next(filter(lambda x: x['name'] == name, items), None)
         updated_item = {'name': name, 'price': data['price']}
 
         if item is None:
