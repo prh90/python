@@ -1,5 +1,5 @@
 from werkzeug.security import safe_str_cmp  # compares strings
-from user import User
+from resources.user import User
 
 
 def authenticate(username, password):
