@@ -11,7 +11,7 @@ class Item(Resource):
     def get(self, name):
         item = ItemModel.find_by_name(name)
         if item:
-            return item
+            return item.json()
         return {'message': 'Item not found'}, 404
 
     def post(self, name):
@@ -19,14 +19,14 @@ class Item(Resource):
             return {'message': "An item with the name '{}' already exists".format(name)}, 400
 
         data = Item.parser.parse_args()
-        item = {'name': name, 'price': data['price']}
+        item = ItemModel(name, data['price'])
 
         try:
-            ItemModel.insert(item)
+            item.insert()
         except:
             return {"message": "An error has occured inserting the item."}, 500
             # 500 = internal server error
-        return item, 201
+        return item.json(), 201
 
     def delete(self, name):
         if ItemModel.find_by_name(name):
@@ -45,19 +45,19 @@ class Item(Resource):
     def put(self, name):
         data = Item.parser.parse_args()
         item = ItemModel.find_by_name(name)
-        updated_item = {'name': name, 'price': data['price']}
+        updated_item = ItemModel(name, data['price'])
 
         if item is None:
             try:
-                ItemModel.insert(updated_item)
+                updated_item.insert()
             except:
                 return {"message": "An error occured inserting the item"}, 500
         else:
             try:
-                ItemModel.update(updated_item)
+                updated_item.update()
             except:
                 return {"message": "An error occured updating the item"}, 500
-        return updated_item, 200
+        return updated_item.json(), 200
 
 
 class ItemList(Resource):
