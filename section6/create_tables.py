@@ -16,3 +16,13 @@ cursor.execute(create_table)
 connection.commit()
 
 connection.close()
+
+"""
+Code above was used to create the tables until this code below was used
+the code in each class tells the db what it needs
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
+"""
