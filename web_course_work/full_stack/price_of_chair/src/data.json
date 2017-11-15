@@ -1,0 +1,26 @@
+{
+  "students": [
+    {
+      "name": "Pablo",
+      "grade": 99,
+      "id": "123456789"
+    },
+    {
+      "name": "Jose",
+      "grade": 91,
+      "id": "123789456"
+    },
+    {
+      "name": "Anna",
+      "grade": 95,
+      "id": "963258741"
+    }
+  ]
+}
+//{
+//  "students": [
+//    "jose",
+//    "pablo",
+//    "anna"
+//  ]
+//}
