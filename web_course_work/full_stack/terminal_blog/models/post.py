@@ -1,3 +1,6 @@
+from database import Database
+
+
 class Post(object):
     def __init__(self, blog_id, title, content, author, date, id):
         self.blog_id = blog_id
