@@ -12,3 +12,6 @@ Database.initialize()
 # post = Post.from_mongo('2614e402162d45c585ca8b9baa5b4a7a')
 #
 # print(post)
+blog = Blog(author="Pablo",
+            title="Sample Title",
+            description="Sample Description")
