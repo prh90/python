@@ -3,9 +3,12 @@ from database import Database
 
 Database.initialize()
 
-post = Post("title", "content", "pablo")
-post2 = Post("post2", "post2Con", "2Pablo")
+# post = Post(blog_id="123",
+#             title="Post",
+#             content="THIS IS SOME SAMPLE STUFF",
+#             author="Pablo")
+# post.save_to_mongo()
 
-print(post.content)
-
-print(post2.title)
+# post = Post.from_mongo('2614e402162d45c585ca8b9baa5b4a7a')
+#
+# print(post)
