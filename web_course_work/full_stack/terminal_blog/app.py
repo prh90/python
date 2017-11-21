@@ -1,4 +1,7 @@
 from models.post import Post
+from database import Database
+
+Database.initialize()
 
 post = Post("title", "content", "pablo")
 post2 = Post("post2", "post2Con", "2Pablo")
