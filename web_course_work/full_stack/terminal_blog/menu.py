@@ -4,11 +4,11 @@ from models.blog import Blog
 
 class Menu(object):
     def __init__(self):
-        self.user_blog = None
         # Ask user for author name
         self.user = input("Enter your author name: ")
+        self.user_blog = None
         # Check if they've already got an account
-        if self._user_has_account:
+        if self._user_has_account():
             print("Welcome back {}".format(self.user))
         # If not, prompt user to create one
         else:
