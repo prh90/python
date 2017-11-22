@@ -30,15 +30,17 @@ class Menu(object):
         self.user_blog = blog
 
     def run_menu(self):
-        read_or_write = input("Do you want to (R) or (W) blogs?")
-        # User read or write blogs
-        if read_or_write == 'R':
-            self._list_blogs()
-            self._view_blog()
-        elif read_or_write == 'W':
-            self.user_blog.new_post()
-        else:
-            print("Thank you for blogging!")
+        while True:
+            read_or_write = input("Do you want to (R) or (W) blogs or (Q)?")
+            # User read or write blogs
+            if read_or_write == 'R':
+                self._list_blogs()
+                self._view_blog()
+            elif read_or_write == 'W':
+                self.user_blog.new_post()
+            elif read_or_write == 'Q':
+                print("Thank you for blogging!")
+                return False
 
     def _list_blogs(self):
         blogs = Database.find(collection='blogs',
