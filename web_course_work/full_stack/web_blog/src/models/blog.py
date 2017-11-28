@@ -6,7 +6,7 @@ from src.models.post import Post
 
 
 class Blog(object):
-    def __init__(self, author, title, description, author_id,_id=None):
+    def __init__(self, author, title, description, author_id, _id=None):
         self.author = author
         self.author_id = author_id
         self.title = title
