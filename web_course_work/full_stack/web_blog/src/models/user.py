@@ -1,5 +1,9 @@
 import uuid
+
+from flask import session
+
 from src.common.database import Database
+from src.models.blog import Blog
 
 
 class User(object):
@@ -22,7 +26,7 @@ class User(object):
 
     @staticmethod
     def login_valid(email, password):
-        # chekc whether a users email matches the password they sent us
+        # check whether a users email matches the password they sent us
         user = User.get_by_email(email)
         if user is not None:
             return user.password == password
@@ -34,20 +38,29 @@ class User(object):
         if user is None:
             new_user = cls(email, password)
             new_user.save_to_mongo()
-            #  User doesnt exist, so we can create it
+            session['email'] = email
             return True
         else:
             return False
     #         User exists
 
-    def login(self):
-        pass
+    @staticmethod
+    def login(user_email):
+        session['email'] = user_email
+
+    @staticmethod
+    def logout():
+        session['email'] = None
 
     def get_blogs(self):
-        pass
+        return Blog.find_by_author_id(self._id)
 
     def json(self):
-        pass
+        return {
+            "email": self.email,
+            "_id": self._id,
+            "password": self.password
+        }
 
     def save_to_mongo(self):
-        pass
+        Database.insert("users", self.json())
