@@ -1,8 +1,12 @@
-.body {
+body {
     background-color: coral;
 }
 
 #login-form {
     margin-top: 25px;
     margin-left:100px;
+}
+
+.login-page-form {
+    max-width: 180px;
 }
