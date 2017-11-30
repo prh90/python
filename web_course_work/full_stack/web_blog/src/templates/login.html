@@ -1,6 +1,14 @@
 {%extends "base.html" %}
 {% block content %}
     <h1>User Login</h1>
+    <nav class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link active" href="http://127.0.0.1:5000/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="http://127.0.0.1:5000/register">Register</a>
+        </li>
+    </nav>
     <div class="container page-form">
         <form id="login-form" action="/auth/login" method="post">
             <div class="form-group">
