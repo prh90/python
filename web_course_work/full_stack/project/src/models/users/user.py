@@ -26,13 +26,13 @@ class User(object):
 
     @staticmethod
     def register_user(email, password):
-        user_data - Database.find_one("users", {"email": email})
+        user_data = Database.find_one("users", {"email": email})
 
         if user_data is not None:
-            pass
+            raise UserErrors.UserAlreadyRegisteredError("The email you used to register already exists")
         if not Utils.email_is_valid(email):
-            # email  user that their email is not constructed properly
-            pass
+            raise UserErrors.InvalidEmailError("The e-mail does not have the right format")
+
         User(email, Utils.hash_password(password)).save_to_db()
 
         return True
