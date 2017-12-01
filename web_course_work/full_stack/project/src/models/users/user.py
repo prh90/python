@@ -15,12 +15,11 @@ class User(object):
 
     @staticmethod
     def is_login_valid(email, password):
-        """
-        This method verifies that email/password combo is valid or not
-        Check if the email exists and that the password associated to that email is correct
-        """
         user_data = Database.find_one("users", {"email": email})
         if user_data is None:
             raise UserErrors.UserNotExistsError("Your user does not exist")
+
         if not Utils.check_hashed_password(password, user_data['password']):
             raise UserErrors.IncorrectPasswordError("Your password is incorrect")
+
+        return True
