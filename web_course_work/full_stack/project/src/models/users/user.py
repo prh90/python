@@ -1,6 +1,7 @@
 import uuid
-
 from src.common.database import Database
+import src.models.users.errors as UserErrors
+from src.common.utils import Utils
 
 
 class User(object):
@@ -20,6 +21,6 @@ class User(object):
         """
         user_data = Database.find_one("users", {"email": email})
         if user_data is None:
-            pass
+            raise UserErrors.UserNotExistsError("Your user does not exist")
         if not Utils.check_hashed_password(password, user_data['password']):
-            pass
+            raise UserErrors.IncorrectPasswordError("Your password is incorrect")
