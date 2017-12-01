@@ -23,3 +23,26 @@ class User(object):
             raise UserErrors.IncorrectPasswordError("Your password is incorrect")
 
         return True
+
+    @staticmethod
+    def register_user(email, password):
+        user_data - Database.find_one("users", {"email": email})
+
+        if user_data is not None:
+            pass
+        if not Utils.email_is_valid(email):
+            # email  user that their email is not constructed properly
+            pass
+        User(email, Utils.hash_password(password)).save_to_db()
+
+        return True
+
+    def save_to_db(self):
+        Database.insert("users", self.json())
+    
+    def json(self):
+        return {
+            "_id": self._id,
+            "email": self.email,
+            "password": self.password
+        }
