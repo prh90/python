@@ -4,15 +4,16 @@ from bs4 import BeautifulSoup
 import re
 from src.common.database import Database
 import src.models.items.constants as ItemConstants
+from src.models.stores.store import Store
 
 
 class Item(object):
-    def __init__(self, name, url, store, _id=None):
-        self.name = name
+    def __init__(self, url, _id=None):
         self.url = url
-        self.store = store
+        store = Store.find_by_url(url)
         tag_name = store.tag_name
         query = store.query
+        self.name = self.load_name(tag_name, query)
         self.price = self.load_price(tag_name, query)
         self._id = uuid.uuid4().hex if _id is None else _id
 
@@ -29,6 +30,19 @@ class Item(object):
 
         pattern = re.compile("(\d+.\d+)")
         match = pattern.search(string_price)
+
+        return match.group()
+
+    # def load_name(self, tag_name, query):
+        # # <span id="priceblock_ourprice" class="a-size-medium a-color-price">$2,899.00</span> amazon span
+        # request = requests.get(self.url)
+        # content = request.content
+        # soup = BeautifulSoup(content, "html.parser")
+        # element = soup.find(tag_name, query)
+        # string_price = element.text.strip()
+        #
+        # pattern = re.compile("(\d+.\d+)")
+        # match = pattern.search(string_price)
 
         return match.group()
 
