@@ -1,6 +1,9 @@
 from flask import Flask, render_template
-
 from src.common.database import Database
+from src.models.users.views import user_blueprint
+from src.models.stores.views import store_blueprint
+from src.models.alerts.views import alert_blueprint
+
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -14,10 +17,17 @@ def init_db():
 
 @app.route('/')
 def home():
-    return render_template('home.jinja2')
+    return render_template('home.html')
 
 # @app.route('/')
 
 
-from src.models.users.views import user_blueprint
+# from src.models.users.views import user_blueprint
 app.register_blueprint(user_blueprint, url_prefix="/users")
+
+# from src.models.alerts.views import alert_blueprint
+app.register_blueprint(alert_blueprint, url_prefix="/alerts")
+
+# from src.models.stores.views import store_blueprint
+app.register_blueprint(store_blueprint, url_prefix="/stores")
+
