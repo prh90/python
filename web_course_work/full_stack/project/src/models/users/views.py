@@ -8,7 +8,6 @@ import src.models.users.errors as UserErrors
 user_blueprint = Blueprint('users', __name__)
 
 
-
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login_user():
     if request.method == 'POST':
