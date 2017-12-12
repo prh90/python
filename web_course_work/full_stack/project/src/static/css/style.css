@@ -1,0 +1,12 @@
+body {
+    background: grey;
+}
+
+.form-size {
+    border-radius: 25px;
+    border: 3px solid #00ffee;
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #00FFFF;
+    padding: 20px;
+}
