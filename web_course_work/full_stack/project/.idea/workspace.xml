@@ -11,17 +11,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
+            <state relative-caret-position="252">
               <caret line="46" column="30" lean-forward="true" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -815,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="46" column="30" lean-forward="true" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/users/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -838,6 +830,14 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="46" column="30" lean-forward="true" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
