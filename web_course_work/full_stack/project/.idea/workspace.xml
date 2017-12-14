@@ -15,7 +15,15 @@
         <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="535">
+<<<<<<< HEAD
+<<<<<<< HEAD
+              <caret line="68" column="69" lean-forward="false" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
+=======
               <caret line="64" column="69" lean-forward="false" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
+>>>>>>> master
+=======
+              <caret line="64" column="69" lean-forward="false" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
+>>>>>>> master
               <folding />
             </state>
           </provider>
@@ -24,11 +32,24 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/alerts/views.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="324">
+              <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+=======
+=======
+>>>>>>> master
             <state relative-caret-position="270">
               <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
                 <marker date="1513236304139" expanded="true" signature="488:497" ph="..." />
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -86,7 +107,6 @@
         <option value="$PROJECT_DIR$/src/templates/html_dependencies.html" />
         <option value="$PROJECT_DIR$/src/models/stores/views.py" />
         <option value="$PROJECT_DIR$/src/templates/base.html" />
-        <option value="$PROJECT_DIR$/src/models/alerts/views.py" />
         <option value="$PROJECT_DIR$/src/templates/home.html" />
         <option value="$PROJECT_DIR$/src/templates/stores/store_list.html" />
         <option value="$PROJECT_DIR$/src/templates/stores/store.html" />
@@ -94,7 +114,6 @@
         <option value="$PROJECT_DIR$/src/templates/stores/create_store.html" />
         <option value="$PROJECT_DIR$/src/templates/alerts/edit_alert.html" />
         <option value="$PROJECT_DIR$/src/templates/alerts/create_alert.html" />
-        <option value="$PROJECT_DIR$/src/templates/alerts/alert.html" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/users/register.html" />
         <option value="$PROJECT_DIR$/src/templates/users/login.html" />
@@ -102,9 +121,11 @@
         <option value="$PROJECT_DIR$/src/models/users/user.py" />
         <option value="$PROJECT_DIR$/src/models/users/views.py" />
         <option value="$PROJECT_DIR$/src/static/css/style.css" />
-        <option value="$PROJECT_DIR$/src/models/alerts/alert.py" />
         <option value="$PROJECT_DIR$/src/models/items/item.py" />
         <option value="$PROJECT_DIR$/src/templates/users/alerts.html" />
+        <option value="$PROJECT_DIR$/src/models/alerts/alert.py" />
+        <option value="$PROJECT_DIR$/src/models/alerts/views.py" />
+        <option value="$PROJECT_DIR$/src/templates/alerts/alert.html" />
       </list>
     </option>
   </component>
@@ -235,7 +256,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.alert_updater">
+  <component name="RunManager" selected="Python.run">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -393,8 +414,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.alert_updater" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run" />
+        <item index="0" class="java.lang.String" itemvalue="Python.run" />
+        <item index="1" class="java.lang.String" itemvalue="Python.alert_updater" />
         <item index="2" class="java.lang.String" itemvalue="Python.app" />
         <item index="3" class="java.lang.String" itemvalue="Python.alert" />
       </list>
@@ -485,6 +506,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+          <folding />
+=======
+>>>>>>> master
+=======
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -724,6 +752,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/src/templates/alerts/alert.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -732,6 +762,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -788,21 +819,48 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/templates/users/alerts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+=======
     <entry file="file://$PROJECT_DIR$/src/models/alerts/views.py">
       <provider selected="true" editor-type-id="text-editor">
+=======
+    <entry file="file://$PROJECT_DIR$/src/models/alerts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> master
         <state relative-caret-position="270">
           <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
             <marker date="1513236304139" expanded="true" signature="488:497" ph="..." />
           </folding>
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="265">
+          <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+          <folding />
+=======
         <state relative-caret-position="306">
           <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+>>>>>>> master
+=======
+        <state relative-caret-position="306">
+          <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -821,10 +879,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/alerts.html">
+    <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="535">
+          <caret line="68" column="69" lean-forward="false" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/alerts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/alerts/alert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+=======
         <state relative-caret-position="378">
           <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+>>>>>>> master
+=======
+        <state relative-caret-position="378">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
