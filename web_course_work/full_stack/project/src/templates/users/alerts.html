@@ -6,7 +6,8 @@
     <div class="list-group">
         {% for alert in alerts%}
             <h4 class="list-group-item-heading">Alert for {{ alert.item.name }}</h4>
-            <p class="list-group-item-text">Last price found: {{ alert.item.price }}, Your set price was {{ alert.item.price_limit }}</p>
+            <p class="list-group-item-text">Last price found: {{ alert.item.price }}<br>
+            Last checked on {{ alert.last_checked.strftime("%m-%d-%Y at %H:%M") }}</p>
         {% endfor %}
     </div>
 {% endblock %}

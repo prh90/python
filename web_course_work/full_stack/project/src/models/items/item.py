@@ -8,7 +8,7 @@ from src.models.stores.store import Store
 
 
 class Item(object):
-    def __init__(self, name, url, _id=None):
+    def __init__(self, name, url, price=None,_id=None):
         self.url = url
         store = Store.find_by_url(url)
         self.tag_name = store.tag_name
@@ -16,7 +16,7 @@ class Item(object):
         self.name = name
         # self.name = self.load_name(tag_name, query)
         # self.price = self.load_price(tag_name, query)
-        self.price = None
+        self.price = None if price is None else price
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -51,13 +51,14 @@ class Item(object):
         # return match.group()
 
     def save_to_mongo(self):
-        Database.insert(ItemConstants.COLLECTION, self.json())
+        Database.update(ItemConstants.COLLECTION, {'id': self._id}, self.json())
 
     def json(self):
         return {
             "id": self._id,
             "name": self.name,
-            "url": self.url
+            "url": self.url,
+            "price": self.price
         }
 
     @classmethod
