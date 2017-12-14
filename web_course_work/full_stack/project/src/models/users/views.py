@@ -45,7 +45,7 @@ def register_user():
 def user_alerts():
     user = User.find_by_email(session['email'])
     alerts = user.get_alerts()
-    return render_template('users/alerts.html', alerts=alerts)
+    return render_template('users/alerts.html', alerts=alerts, email=user.email)
 
 
 @user_blueprint.route('/logout')

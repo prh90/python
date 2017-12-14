@@ -10,3 +10,7 @@ body {
     background-color: #00FFFF;
     padding: 20px;
 }
+
+#alert-des {
+    color: gold;
+}

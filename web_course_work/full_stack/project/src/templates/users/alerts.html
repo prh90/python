@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <p>Nothing here yet</p>
+    <div class="page-header">
+        <h1>{{ email }}'s Alerts <small id="alert-des">Showing all existing alerts</small></h1>
+    </div>
+    <div class="list-group">
+        {% for alert in alerts%}
+            <h4 class="list-group-item-heading">Alert for {{ alert.item.name }}</h4>
+            <p class="list-group-item-text">Last price found: {{ alert.item.price }}, Your set price was {{ alert.item.price_limit }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
