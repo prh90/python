@@ -16,7 +16,7 @@ def create_alert():
         pass
 
 #     What happens if its a GET request
-    return render_template('alerts/create_alert.html')
+    return render_template('alerts/new_alert.html')
 
 
 @alert_blueprint.route('/deactivate/<string:alert_id>')
