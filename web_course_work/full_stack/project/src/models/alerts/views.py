@@ -12,6 +12,7 @@ def index():
 
 
 @alert_blueprint.route('/new', methods=['GET', 'POST'])
+@requires_login  # redirects the user to 'users.Login' if session['email'] is None
 def create_alert():
     if request.method == "POST":
         name = request.form['name']
