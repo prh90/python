@@ -51,11 +51,11 @@ class Item(object):
         # return match.group()
 
     def save_to_mongo(self):
-        Database.update(ItemConstants.COLLECTION, {'id': self._id}, self.json())
+        Database.update(ItemConstants.COLLECTION, {'_id': self._id}, self.json())
 
     def json(self):
         return {
-            "id": self._id,
+            "_id": self._id,
             "name": self.name,
             "url": self.url,
             "price": self.price
