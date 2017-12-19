@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, url_for
+from werkzeug.utils import redirect
+
 import src.models.users.decorators as user_decorators
 from src.models.alerts.alert import Alert
 from src.models.items.item import Item
@@ -40,3 +42,9 @@ def deactivate_alert():
 def get_alert_page(alert_id):
     alert = Alert.find_by_id(alert_id)
     return render_template('alerts/alert.html', alert=alert)
+
+
+@alert_blueprint.route('/check_price/<string:alert_id>')
+def check_alert_price(alert_id):
+    Alert.find_by_id(alert_id).load_item_price()
+    return redirect(url_for('.get_alert_page', alert_id=alert_id))
