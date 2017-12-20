@@ -18,3 +18,9 @@ body {
 #alert-name {
     color: black;
 }
+
+#alert-info {
+    border-radius: 25px;
+    background-color: #DCDCDC;
+    padding-left: 25px;
+}
