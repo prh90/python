@@ -70,7 +70,6 @@ class Alert(object):
     def find_by_id(cls, alert_id):
         return cls(**Database.find_one(AlertConstants.COLLECTION, {'_id': alert_id}))
 
-
     def deactivate(self):
         self.active = False
         self.save_to_mongo()
@@ -78,3 +77,6 @@ class Alert(object):
     def activate(self):
         self.active = True
         self.save_to_mongo()
+
+    def delete(self):
+        Database.remove(AlertConstants.COLLECTION, {"_id": self._id})
