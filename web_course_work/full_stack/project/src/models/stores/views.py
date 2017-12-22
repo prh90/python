@@ -19,16 +19,30 @@ def store_page(store_id):
 
 @store_blueprint.route('/edit/<string:store_id>', methods=['GET', 'POST'])
 def edit_store(store_id):
-    if request.method == 'POST':
-        pass
+    store = Store.get_by_id(store_id)
 
-    return "Edit store {}".format(store_id)
+    if request.method == 'POST':
+        name = request.form['name']
+        url_prefix = request.form['url_prefix']
+        tag_name = request.form['tag_name']
+        query = json.loads(request.form['query'])
+
+        store.name = name
+        store.url_prefix = url_prefix
+        store.tag_name = tag_name
+        store.query = query
+
+        store.save_to_mongo()
+
+        return redirect(url_for('.index'))
+
+    return render_template('stores/edit_store.html', store=store)
 
 
 @store_blueprint.route('/delete/<string:store_id>')
 def delete_store(store_id):
-    return "Delete store {}".format(store_id)
-
+    Store.get_by_id(store_id).delete()
+    return redirect(url_for('.index'))
 
 @store_blueprint.route('/new', methods=['GET', 'POST'])
 def create_store():
