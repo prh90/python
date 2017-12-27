@@ -19,7 +19,7 @@ def requires_admin_permissions(func):
     def decorated_function(*args, **kwargs):
         if 'email' not in session.keys() or session['email'] is None:
             return redirect(url_for('users.login_user', next=request.path))
-        if session['email'] not in current_app.config.ADMINS:
+        if session['email'] not in current_app.config['ADMINS']:
             return redirect(url_for('users.login_user'))
         return func(*args, **kwargs)
 
