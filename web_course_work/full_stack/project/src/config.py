@@ -2,5 +2,5 @@ DEBUG = True
 
 # no duplicate values
 ADMINS = frozenset([
-    "yourname@yourdomain.com"
+    "prh90@yahoo.com"
 ])
