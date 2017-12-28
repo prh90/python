@@ -57,6 +57,7 @@ class Alert(object):
         self.last_checked = datetime.datetime.utcnow()
         self.item.save_to_mongo()
         self.save_to_mongo()
+        self.send_email_if_price_reached()
         return self.item.price
 
     def send_email_if_price_reached(self):
