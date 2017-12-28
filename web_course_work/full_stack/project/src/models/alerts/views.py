@@ -41,7 +41,7 @@ def edit_alert(alert_id):
         alert.price_limit = price_limit
         alert.save_to_mongo()
 
-        return redirect(url_for('users.users_alerts'))
+        return redirect(url_for('users.user_alerts'))
     return render_template('alerts/edit_alert.html', alert=alert)
 
 
