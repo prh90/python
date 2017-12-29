@@ -10,7 +10,7 @@ alert_blueprint = Blueprint('alerts', __name__)
 
 @alert_blueprint.route('/')
 def index():
-    return "This is the alerts index"
+    return render_template('alerts/alert_home.html')
 
 
 @alert_blueprint.route('/new', methods=['GET', 'POST'])
