@@ -13,5 +13,11 @@ def update():
         alert.send_email_if_price_reached()
 
 
-schedule.every().day.at("01:00").do(update)
+schedule.every().day.at("00:00").do(update)
+schedule.every().day.at("06:00").do(update)
+schedule.every().day.at("12:00").do(update)
+schedule.every().day.at("18:00").do(update)
+
+
+
 

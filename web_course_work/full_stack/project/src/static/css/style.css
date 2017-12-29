@@ -1,5 +1,29 @@
-body {
-    background: grey;
+body{
+    position: relative;
+}
+
+#body-div{
+    background: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")no-repeat center center;
+    background-size: cover;
+    vertical-align: top;
+    top: 0%;
+}
+
+#footer {
+    bottom: 0%;
+    text-align: center;
+    font-size: 150%;
+    color: black;
+    vertical-align: bottom;
+}
+
+#nav-bar {
+    background: transparent;
+}
+
+#nav-bar a:hover {
+    background-color: white;
+    opacity: .5;
 }
 
 .form-size {
@@ -11,16 +35,22 @@ body {
     padding: 20px;
 }
 
-#alert-des {
-    color: gold;
-}
-
-#small {
+#small #aler-des{
     color: black;
 }
 
 #alert-info {
     border-radius: 25px;
+    padding-left: 25px;
+    background-color: white;
+}
+
+#home-ex {
+    border-radius: 25px;
     background-color: #DCDCDC;
     padding-left: 25px;
+}
+
+.home-h1 {
+    font-weight: bold;
 }
