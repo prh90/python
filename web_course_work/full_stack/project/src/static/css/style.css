@@ -4,8 +4,9 @@ body{
 
 #body-div{
     background: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")no-repeat center center;
-    background-size: cover;
+    background-size: 100% 100%;
     vertical-align: top;
+    height: 760px;
     top: 0%;
 }
 
@@ -15,6 +16,7 @@ body{
     font-size: 150%;
     color: black;
     vertical-align: bottom;
+    font-style: italic;
 }
 
 #nav-bar {
@@ -35,22 +37,58 @@ body{
     padding: 20px;
 }
 
-#small #aler-des{
+#small #alert-des{
     color: black;
 }
 
 #alert-info {
     border-radius: 25px;
     padding-left: 25px;
-    background-color: white;
+    background-color: rgb(255, 255, 255, .5)
 }
 
-#home-ex {
+.home-ex{
     border-radius: 25px;
-    background-color: #DCDCDC;
-    padding-left: 25px;
+    background-color: rgb(255, 255, 255, .5);
+    padding: 25px;
+    font-size: 200%;
 }
 
-.home-h1 {
+#home-h1, #jumboh {
     font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.jumbo{
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255, .5);
+    padding: 25px;
+    font-size: 200%;
+}
+
+#store-op, #alert-op{
+    background: rgb(255, 255, 255, .5);
+}
+
+#small{
+    color: black;
+    text-decoration: underline;
+}
+
+#alerts_home, #home{
+    margin-top: 8%;
+}
+
+.wrapper{
+    text-align: center;
+}
+
+#alerts-btn{
+    text-align: center;
+}
+
+.store-add{
+    background: rgb(236, 245, 70, .5);
+    text-align: center;
 }

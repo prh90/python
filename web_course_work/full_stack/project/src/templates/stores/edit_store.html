@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="page-header">
+    <div class="page-header w3-container w3-animate-top">
         <h1>Edit Store</h1>
     </div>
-    <div class="form-size">
+    <div class="form-size w3-container w3-animate-bottom">
         <form method="post">
             <div class="form-group">
                 <label for="name">Store name</label>
@@ -25,6 +25,7 @@
                 <span id="queryHelpBlock" class="help-block">What JSON query would we have to do to find the specific tag with the price? Remember to use double quotation marks</span>
             </div>
             <button type="submit" class="btn btn-warning">Update</button>
+            <a href="{{ url_for('stores.store_page', store_id=store._id) }}" role="button" class="btn btn-default">Cancel</a>
         </form>
     </div>
 {% endblock %}

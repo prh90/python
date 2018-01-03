@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="page-header">
+<div class="page-header w3-container w3-animate-left">
     <h1>Store
-        <small>{{ store.name }}</small>
+        <small id="small">{{ store.name }}</small>
     </h1>
 </div>
-<p>All URLs in this store should start with <strong>{{ store.url_prefix }}</strong></p>
+<p class="w3-container w3-animate-left">All URLs in this store should start with <strong>{{ store.url_prefix }}</strong></p>
 {% if session['email'] in config.ADMINS %}
-<div class="panel panel-default">
+<div class="panel panel-default w3-container w3-animate-right" id="store-op">
     <div class="panel-body">
         <a class="btn btn-warning" href="{{ url_for('stores.edit_store', store_id=store._id) }}" role="button">Edit
             Store</a>

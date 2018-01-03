@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="page-header">
+    <div class="page-header w3-container w3-animate-top">
         <h1>Alert <small id="small">for '{{ alert.item.name }}'</small></h1>
     </div>
-    <div id="alert-info">
+    <div id="alert-info" class="w3-container w3-animate-left">
         <p>Price you want: $<strong>{{ alert.price_limit }}</strong></p>
         <p>Last price found: $<strong>{{ alert.item.price }}</strong></p>
         <p>Last checked on: <strong>{{ alert.last_checked.strftime('%m-%d-%Y at %H:%M') }}</strong></p>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default w3-container w3-animate-bottom" id="alert-op">
         <div class="panel-body">
             <a class="btn btn-default" href="{{ alert.item.url }}" role="button" target="_blank">Visit Site</a>
             <a class="btn btn-warning" href="{{ url_for('alerts.edit_alert', alert_id=alert._id) }}" role="button">Edit Alert</a>

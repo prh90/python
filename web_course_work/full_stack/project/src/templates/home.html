@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="home-ex">
+    <div class="home-ex w3-container w3-animate-opacity" id="home">
       <h1 id="home-h1">Alert Pricing Service</h1>
-        <p>The service includes a scan of websites to alert you of price drop that interest you</p>
+        <br>
+        <p>The service includes a scan of websites to alert you of price drop that interests you</p>
         <p>Just sign up, and get started by adding the URL you wish to track and we will do the rest!</p>
         {% if session['email'] %}
-        <p>Welcome Back <strong>{{session['email']}}!</strong></p>
+            <br>
+            <p>Welcome Back <strong>{{session['email']}}!</strong></p>
         {% else %}
+            <br>
             <p><a class="btn btn-primary btn-lg" href="{{ url_for('users.register_user') }}" role="button">Sign up</a></p>
         {% endif %}
     </div>

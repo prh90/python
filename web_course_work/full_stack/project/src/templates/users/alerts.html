@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="page-header">
+    <div class="page-header w3-container w3-animate-right">
         <h1>{{ email }}'s Alerts <small id="alert-des">Showing all existing alerts</small></h1>
     </div>
-    <div class="list-group">
+    <div class="list-group w3-container w3-animate-left">
         {% for alert in alerts %}
             <a href="{{ url_for('alerts.get_alert_page', alert_id=alert._id) }}" class="list-group-item list-group-item-success {{'list-group-item list-group-item-danger' if not alert.active else ''}}">
                 <h4 class="list-group-item-heading">Alert for {{ alert.item.name }}</h4>
@@ -13,6 +13,6 @@
             </a>
         {% endfor %}
     </div>
-    <a class="btn btn-success" href="{{ url_for('alerts.create_alert') }}"><span class="glyphicon glyphicon-plus"></span> Create Alert</a>
+    <a class="btn btn-success w3-container w3-animate-bottom" href="{{ url_for('alerts.create_alert') }}"><span class="glyphicon glyphicon-plus"></span> Create Alert</a>
 
 {% endblock %}
