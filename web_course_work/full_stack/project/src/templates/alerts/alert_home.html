@@ -1,9 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="jumbotron">
-        <h1>What are Alerts</h1>
+    <div class="jumbo w3-container w3-animate-opacity" id="alerts_home">
+        <h1 id="jumboh">What are Alerts</h1>
+        <br>
         <p>Alerts are simple and time saving. They are reminders of the item you'd like to keep track of.
-        You set a specific price you are willing to buy the item and the website will </p>
+        You set a specific price you are willing to buy the item and the website will do the rest.</p>
+        <br>
+        {% if session['email'] %}
+            <div class="wrapper">
+                <a href="{{ url_for('users.user_alerts') }}" class="btn btn-success"> My Alerts</a>
+            </div>
+        {% else %}
+            <div class="alerts-btn">
+                <a href="{{ url_for('users.register_user') }}" class="btn btn-primary"> Register!</a>
+                <a href="{{ url_for('users.login_user') }}" class="btn btn-success"> Login</a>
+            </div>
+        {% endif %}
     </div>
+
 
 {% endblock %}

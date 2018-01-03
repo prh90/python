@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="page-header">
+    <div class="page-header w3-container w3-animate-left">
         <h1>Stores <small id="small">list of supported stores</small></h1>
     </div>
-    <div class="list-group">
+    <div class="list-group w3-container w3-animate-right">
         {% for store in stores %}
             <a href="{{ url_for('stores.store_page', store_id=store._id)}}" class="list-group-item">
             <h4 class="list-group-item-title">{{ store.name }}</h4>
@@ -11,8 +11,10 @@
         {% endfor %}
     </div>
     {% if session['email'] in config.ADMINS %}
-        <a class="btn btn-success" href="{{ url_for('stores.create_store') }}">
+        <a class="btn btn-success w3-container w3-center w3-animate-bottom" href="{{ url_for('stores.create_store') }}">
             <span class="glyphicon glyphicon-plus"></span> Create New
         </a>
+    {% else %}
+        <p class="store-add"> Stores are being constantly updated, Stay tuned for your preferred store! </p>
     {% endif %}
 {% endblock %}
